@@ -26,7 +26,7 @@ O site do Supermercado Pirilampo possui uma área de Gestão de Estoque. Essa á
 
 ### Onde foi desenvolvido
 
-- O arquivo onde foi implementado a solução se chama `1-unique-products-amount.js` e está dentro do diretório `src`;
+- O arquivo onde foi implementado a solução se chama `unique-products-amount.js` e está dentro do diretório `src`;
 - A implementação está dentro da função `getUniqueProductsAmount`;
 
 ### Regras de negócio
@@ -41,5 +41,47 @@ O site do Supermercado Pirilampo possui uma área de Gestão de Estoque. Essa á
 - Ao utilizar o `data.json` como fonte do estoque, a função retorna o número `29`;
 - Em um cenário onde o array tenha 10 objetos, a função deve retornar o número `10`;
 - Em um cenário onde o array esteja vazio, a função deve retornar o número `0`.
+
+</details>
+
+## 2 - Implementado uma função que retorne os nomes dos produtos únicos em estoque
+
+Além da quantidade de produtos únicos, a área de Gestão de Estoque deve apresentar a lista com o nome dos produtos, funcionalidade muito útil para visualizar quais os produtos que possui em estoque.
+
+<details>
+
+<summary><strong>Foi desenvolvido uma função que retorna um array com os nomes dos produtos únicos em estoque</strong></summary>
+
+### Onde foi desenvolvido
+
+- O arquivo onde foi implementado a solução se chama `unique-products-name.js` e está dentro do diretório `src`;
+- A implementação está dentro da função `getUniqueProductsName`.
+
+### Regras de negócio
+
+- Sua função deve retornar um `array` de `string`;
+- O `array` retornado pela função deve ter o nome de **todos** os produtos do `array` de objetos em estoque.
+
+### A função `getUniqueProductsName` ao receber um array com objetos
+
+- O valor retornado pela função é um `array`;
+- Todos os elementos do array retornado pela função é do tipo `string`;
+- Percorre o array `stockProducts` que contém objetos de produto do estoque, em busca do **nome** de cada produto. Ao final, a função retorna um nova lista que armazena o nome dos produtos.
+- No caso do arquivo `data.json`, a propriedade que se encontra o nome de cada produto é `productName`, caso seja usado outro arquivo a função deve ser alterada para corresponder a propriedade correta que se encontra o nome dos objetos do arquivo em questão.
+- Ao utilizar o `data.json` como fonte do estoque, a função retorna um array com `29` elementos;
+- Em um cenário onde o estoque tenha 10 objetos, a função deve retornar um array com `10` elementos;
+- Em um cenário onde o estoque esteja vazio, a função deve retornar um array com `0` elementos.
+
+### Exemplo do formato esperado para o array de retorno
+
+```js
+[
+  'Arroz',
+  'Feijão',
+  'Macarrão',
+  'Açúcar',
+  ...
+]
+```
 
 </details>
