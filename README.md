@@ -129,6 +129,8 @@ Para conseguir se planejar melhor com a compra de produtos que estão em falta, 
 
 Buscando manter o supermercado sempre bem abastecido de mercadorias, precisamos ter visibilidade não só dos produtos que estão em falta, mas também dos produtos que estão prestes a se esgotar.
 
+<details>
+
 <summary><strong>Foi desenvolvido uma função que retorne um array com os produtos com baixo estoque, em um formato específico</strong></summary>
 
 ### Onde foi desenvolvido
