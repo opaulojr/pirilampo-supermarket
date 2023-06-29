@@ -44,7 +44,7 @@ O site do Supermercado Pirilampo possui uma área de Gestão de Estoque. Essa á
 
 </details>
 
-## 2 - Implementado uma função que retorne os nomes dos produtos únicos em estoque
+## 2. Implementado uma função que retorne os nomes dos produtos únicos em estoque
 
 Além da quantidade de produtos únicos, a área de Gestão de Estoque deve apresentar a lista com o nome dos produtos, funcionalidade muito útil para visualizar quais os produtos que possui em estoque.
 
@@ -86,9 +86,9 @@ Além da quantidade de produtos únicos, a área de Gestão de Estoque deve apre
 
 </details>
 
-## 3 - Crie uma função que retorne os nomes dos produtos indisponíveis do estoque
+## 3. Implementado uma função que retorne os nomes dos produtos indisponíveis do estoque
 
-Para conseguir se planejar melhor com a compra de produtos que estão em falta, precisamos ter conhecimento de quais produtos são esses. Para isso, dentro da seção de Gerenciamento de Estoque, vamos ter uma subseção que mostra os produtos indisponíveis.
+Para conseguir se planejar melhor com a compra de produtos que estão em falta, precisamos ter conhecimento de quais produtos são esses.
 
 <details>
 
@@ -119,6 +119,45 @@ Para conseguir se planejar melhor com a compra de produtos que estão em falta, 
   'Lentilha',
   'Suco de uva',
   'Nozes',
+  ...
+]
+```
+
+</details>
+
+## 4. Implementado uma função que retorne os produtos com baixo estoque em um formato específico
+
+Buscando manter o supermercado sempre bem abastecido de mercadorias, precisamos ter visibilidade não só dos produtos que estão em falta, mas também dos produtos que estão prestes a se esgotar.
+
+<summary><strong>Foi desenvolvido uma função que retorne um array com os produtos com baixo estoque, em um formato específico</strong></summary>
+
+### Onde foi desenvolvido
+
+- O arquivo onde foi implementado a solução se chama `low-stock-products.js` e está dentro do diretório `src`;
+- A implementação está dentro da função `getLowStockProducts`.
+
+### Regras de negócio
+
+- Sua função deve retornar um `array` de `string`;
+- Um produto será considerado com baixo estoque quando a propriedade `quantityInStock` dele for **maior que `0`** e **menor ou igual a `10`**;
+- O formato dos elementos do array deve ser: `{nome do produto}: {quantidade em estoque} unidades`;
+
+### A função `low-stock-products.js` ao receber um array com objetos
+
+- O valor retornado pela função é um `array`;
+- Todos os elementos do array retornado pela função é do tipo `string`;
+- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca do **nome** e da **quantidade em estoque** de cada produto que esteja com baixo estoque. Ao final, a função retorna uma nova lista que armazene uma mensagem personalizada informando o **nome** e a **quantidade do produto**.
+- Os elementos do array retornados estão no formato `{nome do produto}: {quantidade em estoque} unidades`;
+- Ao utilizar o `data.json` como fonte do estoque, a função retorna um array com `7` elementos;
+- Em um cenário onde 20 produtos estão com baixo estoque, a função deve retornar um array com `20` elementos.
+
+### Exemplo do formato esperado para o array de retorno
+
+```js
+[
+  'Nutella: 10 unidades',
+  'Salmão: 5 unidades',
+  'Pipoca: 1 unidades',
   ...
 ]
 ```

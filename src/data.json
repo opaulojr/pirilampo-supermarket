@@ -251,7 +251,7 @@
     "brand": "Seara",
     "description": "Filé de salmão Seara, embalagem de 500g, fonte de proteínas e ômega-3.",
     "price": 39.99,
-    "quantityInStock": 5,
+    "quantityInStock": 1,
     "onSale": true,
     "nutritionalInfo": {
       "servingSize": "100g",
@@ -399,7 +399,7 @@
     "brand": "Daura",
     "description": "Cerveja sem glúten Daura, garrafa de 330ml, sabor equilibrado e leve.",
     "price": 8.99,
-    "quantityInStock": 2,
+    "quantityInStock": 1,
     "onSale": false,
     "nutritionalInfo": {
       "servingSize": "1 garrafa (330ml)",
