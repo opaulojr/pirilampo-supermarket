@@ -142,7 +142,8 @@ Buscando manter o supermercado sempre bem abastecido de mercadorias, precisamos 
 
 - Sua função deve retornar um `array` de `string`;
 - Um produto será considerado com baixo estoque quando a propriedade `quantityInStock` dele for **maior que `0`** e **menor ou igual a `10`**;
-- O formato dos elementos do array deve ser: `{nome do produto}: {quantidade em estoque} unidades`;
+- O formato dos elementos do array deve ser: `{nome do produto}: {quantidade em estoque} unidade` caso a quantidade em estoque seja `1`;
+- O formato dos elementos do array deve ser: `{nome do produto}: {quantidade em estoque} unidades` caso a quantidade em estoque seja maior que `1`;
 
 ### A função `low-stock-products.js` ao receber um array com objetos
 
