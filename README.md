@@ -59,7 +59,7 @@ Além da quantidade de produtos únicos, a área de Gestão de Estoque deve apre
 
 ### Regras de negócio
 
-- Sua função deve retornar um `array` de `string`;
+- A função deve retornar um `array` de `string`;
 - O `array` retornado pela função deve ter o nome de **todos** os produtos do `array` de objetos em estoque.
 
 ### A função `getUniqueProductsName` ao receber um array com objetos
@@ -80,6 +80,45 @@ Além da quantidade de produtos únicos, a área de Gestão de Estoque deve apre
   'Feijão',
   'Macarrão',
   'Açúcar',
+  ...
+]
+```
+
+</details>
+
+## 3 - Crie uma função que retorne os nomes dos produtos indisponíveis do estoque
+
+Para conseguir se planejar melhor com a compra de produtos que estão em falta, precisamos ter conhecimento de quais produtos são esses. Para isso, dentro da seção de Gerenciamento de Estoque, vamos ter uma subseção que mostra os produtos indisponíveis.
+
+<details>
+
+<summary><strong>Foi desenvolvido uma função que retorna um array com os nomes dos produtos indisponíveis</strong></summary>
+
+### Onde foi desenvolvido
+
+- O arquivo onde foi implementado a solução se chama `out-of-stock-products.js` e está dentro do diretório `src`;
+- A implementação está dentro da função `getOutOfStockProducts`.
+
+### Regras de negócio
+
+- A função deve retornar um `array` de `string`;
+- Um produto será considerado fora de estoque quando a propriedade `quantityInStock` dele for **igual a `0`**.
+
+### A função `getUniqueProductsName` ao receber um array com objetos
+
+- O valor retornado pela função é um `array`;
+- Todos os elementos do array retornado pela função é do tipo `string`;
+- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca do **nome** de cada produto que esteja **indisponível** no estoque. Ao final, a função retorna uma nova lista que armazena o nome dos produtos.
+- Ao utilizar o `data.json` como fonte do estoque, a função retorna um array com `4` elementos;
+- Em um cenário onde o estoque tenha 20 produtos indisponíveis, a função deve retornar um array com `20` elementos.
+
+### Exemplo do formato esperado para o array de retorno
+
+```js
+[
+  'Lentilha',
+  'Suco de uva',
+  'Nozes',
   ...
 ]
 ```
