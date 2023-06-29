@@ -1,1 +1,1 @@
-# pirilampo-supermarket
+# Projeto Pirilampo Supermarket
