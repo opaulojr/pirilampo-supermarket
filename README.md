@@ -228,9 +228,9 @@ Agora a criação da função de buscar um produto pelo seu nome, que vai ajudar
 
 ### A função `searchProductByName` ao receber um array com objetos
 
-- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca do **nome** de um produto específico. Caso o produto seja encontrado, a função irá retornar um novo objeto com as propriedades de `description` e `formattedPrice`.
-- Ao buscar por um produto existente, a função deve retornar um objeto cuja chave `description` seja a mesma do objeto original e a chave `formattedPrice` esteja dentro do formato `R$ XX.YY` ou `R$ X.YY`;
-- Ao buscar por um produto existente, o valor retornado pela função **não** deve ser `null`;
+- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca do **nome** de um produto específico. Caso o produto seja encontrado, a função irá retornar uma lista de objetos com as propriedades de `description` e `formattedPrice`.
+- Ao buscar por um produto existente, o array retornado tem objetos cuja chave `description` seja a mesma do objeto original e a chave `formattedPrice` esteja dentro do formato `R$ XX.YY` ou `R$ X.YY`;
+- Ao buscar por um produto existente, o valor retornado pela função é um `array` de elementos do tipo `object`;
 - Buscar por um produto inexistente, retornará `null`;
 - Chamar a função sem passar parâmetro, retornará `null`.
 - Ao buscar por um nome de produto com **acentos** ou **maiúsculas** e **minúsculas**, a função retornará o produto mesmo que o parâmetro tenha sido passado sem respeitar acentuação e sensibilidade do nome do produto.
@@ -247,6 +247,65 @@ Agora a criação da função de buscar um produto pelo seu nome, que vai ajudar
     description: 'Cerveja Weiss Eisenbahn, garrafa de 500ml, sabor encorpado e aromático.',
     formattedPrice: 'R$ 7.99'
   },
+  ...
+]
+```
+
+</details>
+
+## 7. Implementado uma função que busque por produtos de uma marca específica
+
+Outra funcionalidade crucial é a busca por produtos através da marca, que também vai fazer parte da Página Inicial do Supermercado Pirilampo.
+
+<details>
+
+<summary><strong>Foi desenvolvido uma função que permite buscar produtos pela marca</strong></summary>
+
+### Onde foi desenvolvido
+
+- O arquivo onde foi implementado a solução se chama `search-products-by-brand.js` e está dentro do diretório `src`;
+- A implementação está dentro da função `searchProductsByBrand`.
+
+### Regras de negócio
+
+- A função deve receber a marca como parâmetro;
+- Se produtos forem encontrados, a função deve retornar um novo `array` de objetos. Cada objeto deve ter as seguintes chaves:
+
+```js
+[
+  {
+    description: 'descrição do produto, sem nenhuma modificação',
+    formattedPrice: 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`'
+  }
+]
+```
+
+- Se nenhum produto for encontrado, a função deve retornar um `array` vazio;
+- A função deve retornar um `array` vazio caso seja chamada **sem parâmetro**.
+- A pesquisa deve ser `case-insensitive` e `accent-insensitive`:
+
+### A função `searchProductsByBrand` ao receber um array com objetos
+
+- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos de uma **marca** específica. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição** e **valor formatado do produto**, caso contrário a função retornará **uma lista vazia**.
+- Ao buscar produtos pela marca, o array retornado tem objetos cuja chave `description` seja a mesma do objeto original e a chave `formattedPrice` esteja dentro do formato `R$ XX.YY` ou `R$ X.YY`.
+- Ao buscar por uma marca existente, o valor retornado pela função é um `array` de elementos do tipo `object`;
+- Buscar por uma marca inexistente, retornará um array `vazio`;
+- Chamar a função sem passar parâmetro, retornará um array `vazio`;
+- Buscar pela marca "Hortifruti", utilizando o `data.json` como fonte do estoque, a função retorna um array com `6` elementos;
+- Ao buscar pela marca de produto com **acentos** ou **maiúsculas** e **minúsculas**, a função retornará o produto mesmo que o parâmetro tenha sido passado sem respeitar acentuação e sensibilidade do nome do marca.
+
+### Exemplo do formato esperado caso a função encontre produtos de uma marca
+
+```js
+[
+  {
+    description: 'Batata Doce Hortifruti, pacote de 1kg, batatas doces frescas e saborosas.',
+    formattedPrice: 'R$ 6.99'
+  },
+  {
+    description: "Cenoura Hortifruti, pacote de 500g, cenouras frescas e crocantes.",
+    formattedPrice: 'R$ 3.99'
+  }
   ...
 ]
 ```
