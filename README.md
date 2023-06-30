@@ -194,10 +194,9 @@ A quantidade única de produtos não consegue representar o tamanho do estoque. 
 
 </details>
 
-## 6. Crie uma função que busque um produto pelo nome
+## 6. Implementado uma função que busque um produto pelo nome
 
-Agora que terminamos de criar as funções que entregam a lógica da área de Gestão de Estoque, podemos partir para a criação das funções que vão ajudar a construir a Página Inicial do Supermercado Pirilampo. Iniciaremos a construção lógica da Página Inicial fornecendo a funcionalidade de buscar um produto pelo seu nome. A ideia é que essa função seja utilizada para desenvolver uma página parecida com o exemplo do esboço a seguir.
-
+Agora a criação da função de buscar um produto pelo seu nome, que vai ajudar a construir a Página Inicial do Supermercado Pirilampo.
 
 <details>
 
@@ -211,34 +210,45 @@ Agora que terminamos de criar as funções que entregam a lógica da área de Ge
 ### Regras de negócio
 
 - A função deve receber o nome do produto por parâmetro;
-- Considere que o nome do produto é único. Portanto essa função **não retorna** um `array` de produtos e sim um `object` com as informações dele;
-- Se o produto for encontrado, sua função irá retornar um novo objeto com as seguintes chaves:
+- Considere que pode existir produtos com nome similares ou quem está fazendo a pesquisa não sabe **exatamente** o nome do produto dentro de `data.json`. Portanto essa função **deve** retornar um `array` de produtos que possuem no nome o parâmetro passado na função;
+- Se o produto for encontrado, sua função irá retornar um array de objetos com as seguintes chaves:
 
 ```js
+[
   {
     description: 'descrição do produto, sem nenhuma modificação',
     formattedPrice: 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do `data.json` já se encontra nesse formato. Exemplo: `R$ 10.99`'
   }
+]
 ```
 
 - Se o produto não for encontrado, a função deve retornar `null`;
-- A função deve retornar `null` caso seja chamada **sem parâmetro**.
+- A função deve retornar `null` caso seja chamada **sem parâmetro**;
+- A pesquisa deve ser `case-insensitive` e `accent-insensitive`:
 
 ### A função `searchProductByName` ao receber um array com objetos
 
 - A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca do **nome** de um produto específico. Caso o produto seja encontrado, a função irá retornar um novo objeto com as propriedades de `description` e `formattedPrice`.
 - Ao buscar por um produto existente, a função deve retornar um objeto cuja chave `description` seja a mesma do objeto original e a chave `formattedPrice` esteja dentro do formato `R$ XX.YY` ou `R$ X.YY`;
 - Ao buscar por um produto existente, o valor retornado pela função **não** deve ser `null`;
-- Ao buscar por um produto inexistente, retornará `null`;
-- Ao chamar a função sem passar parâmetro, retornará `null`.
+- Buscar por um produto inexistente, retornará `null`;
+- Chamar a função sem passar parâmetro, retornará `null`.
+- Ao buscar por um nome de produto com **acentos** ou **maiúsculas** e **minúsculas**, a função retornará o produto mesmo que o parâmetro tenha sido passado sem respeitar acentuação e sensibilidade do nome do produto.
 
 ### Exemplo do formato esperado caso a função encontre um produto
 
 ```js
+[
   {
-    description: 'Creme de avelã com cacau Nutella, pote de 350g, ideal para passar no pão ou comer com frutas.',
-    formattedPrice: 'R$ 19.99'
-  }
+    description: 'Cerveja Pilsen Brahma, lata de 350ml, sabor refrescante e leve.',
+    formattedPrice: 'R$ 3.49'
+  },
+  {
+    description: 'Cerveja Weiss Eisenbahn, garrafa de 500ml, sabor encorpado e aromático.',
+    formattedPrice: 'R$ 7.99'
+  },
+  ...
+]
 ```
 
 </details>

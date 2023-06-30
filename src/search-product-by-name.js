@@ -1,19 +1,31 @@
 const stockProducts = require('./data.json');
 
-const searchProductByName = (productName) => {
-  if (!productName) return null;
+const normalizeString = (string) => string
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .toLowerCase();
 
-  const foundProduct = stockProducts.find((product) => product.productName === productName);
+const searchProductByName = (name) => {
+  if (!name) return null;
 
-  if (foundProduct) {
-    const formattedPrice = `R$ ${foundProduct.price.toFixed(2)}`;
+  const normalizedName = normalizeString(name);
+
+  const foundProducts = stockProducts.filter((product) => {
+    const normalizedProductName = normalizeString(product.productName);
+    return normalizedProductName.includes(normalizedName);
+  });
+
+  if (foundProducts.length === 0) return null;
+
+  const formattedProducts = foundProducts.map((product) => {
+    const formattedPrice = `R$ ${product.price.toFixed(2)}`;
     return {
-      description: foundProduct.description,
+      description: product.description,
       formattedPrice,
     };
-  }
+  });
 
-  return null;
+  return formattedProducts;
 };
 
 module.exports = { searchProductByName };
