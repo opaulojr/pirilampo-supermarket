@@ -311,3 +311,58 @@ Outra funcionalidade crucial é a busca por produtos através da marca, que tamb
 ```
 
 </details>
+
+## 8. Crie uma função que busque por produtos na promoção
+
+Todo supermercado tem promoções, certo? Logo uma área com os produtos em oferta é altamente estratégico. Pensando nisso foi desenvolvido uma função que recupera os produtos em promoção, para serem adicionados em uma nova seção.
+
+<details>
+
+<summary><strong>Foi desenvolvida uma função que retorna os produtos em promoção</strong></summary>
+
+### Onde foi desenvolvido
+
+- O arquivo onde foi implementado a solução se chama `products-on-sale.js` e está dentro do diretório `src`;
+- A implementação está dentro da função `getProductsOnSale`;
+
+### Regras de negócio
+
+- Um produto é considerado em promoção quando a chave `onSale` tiver o valor `true`;
+- Se produtos forem encontrados, a função irá retornar um novo `array` de objetos. Cada objeto deve ter as seguintes chaves:
+
+```js
+[
+  {
+    description: 'descrição do produto, sem nenhuma modificação',
+    formattedPrice: 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
+    onSale: 'informação booleana identificando que o produto está em promoção'
+  }
+]
+```
+
+### A função `getProductsOnSale` ao receber um array com objetos
+
+- A função percorrer o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos **em promoção**. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição**, o **valor formatado do produto** e a **informação booleana de oferta**.
+  - Ao buscar por produtos em promoção, o valor retornado pela função é um `array` de elementos do tipo `object`;
+  - Os objetos do array tem 3 chaves: `description`, `formattedPrice` e `onSale`;
+  - O array retornado tem objetos cuja chave `description` seja a mesma do objeto original, a chave `formattedPrice` esteja dentro do formato `R$ XX.YY` ou `R$ X.YY` e a chave `onSale` seja `true`.
+
+### Exemplo do formato esperado caso a função encontre produtos em promoção
+
+```js
+[
+  {
+    description: "Biscoito recheado Nestlé, pacote de 130g, sabor chocolate.",
+    formattedPrice: 'R$ 1.99',
+    onSale: true
+  },
+  {
+    description: "Filé de salmão Seara, embalagem de 500g, fonte de proteínas e ômega-3.",
+    formattedPrice: 'R$ 39.99',
+    onSale: true
+  },
+  ...
+]
+```
+
+</details>
