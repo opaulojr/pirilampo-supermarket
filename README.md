@@ -145,7 +145,7 @@ Buscando manter o supermercado sempre bem abastecido de mercadorias, precisamos 
 - O formato dos elementos do array deve ser: `{nome do produto}: {quantidade em estoque} unidade` caso a quantidade em estoque seja `1`;
 - O formato dos elementos do array deve ser: `{nome do produto}: {quantidade em estoque} unidades` caso a quantidade em estoque seja maior que `1`;
 
-### A função `low-stock-products.js` ao receber um array com objetos
+### A função `getLowStockProducts` ao receber um array com objetos
 
 - O valor retornado pela função é um `array`;
 - Todos os elementos do array retornado pela função é do tipo `string`;
@@ -164,5 +164,32 @@ Buscando manter o supermercado sempre bem abastecido de mercadorias, precisamos 
   ...
 ]
 ```
+
+</details>
+
+## 5 - Implementado uma função que retorne o total de produtos em estoque
+
+A quantidade única de produtos não consegue representar o tamanho do estoque. Um grande exemplo disso é que podemos ter 1 produto **Farinha** cadastrado no sistema, mas com centenas de pacotes no estoque. É importante para o dono do empreendimento ter noção do tamanho do seu estoque, pois dependendo do movimento do seu supermercado, expandir o galpão que armazena todos os produtos pode ser uma opção.
+
+<details>
+
+<summary><strong>Foi desenvolvido uma função que retorna a quantidade de unidades de todos os produtos em estoque</strong></summary>
+
+### Onde foi desenvolvido
+
+- O arquivo onde foi implementado a solução se chama `products-amount.js` e está dentro do diretório `src`;
+- A implementação deve está da função `getProductsAmount`.
+
+### Regras de negócio
+
+- A função deve retornar um `number`;
+- Utilize a propriedade `quantityInStock`, do objeto de produto do estoque, para acumular os totais de todos os produtos do estoque.
+
+### A função `getProductsAmount` ao receber um array com objetos
+
+- O valor retornado pela função é do tipo `number`;
+- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca da **quantidade em estoque** de cada produto. Ao final, a função retorna o somatório da quantidade de todos os produtos em estoque.
+- Ao utilizar o `data.json` como fonte do estoque, a função retorna o número `628`;
+- Em um cenário onde o estoque tenha 4857 produtos, a função deve retornar o número `4857`.
 
 </details>
