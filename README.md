@@ -432,16 +432,21 @@ Pensando na saúde das pessoas, implementar uma seção na Página Inicial para 
 ### Onde foi desenvolvido
 
 - O arquivo onde foi implementado a solução se chama `products-rich-in-vitamin.js` e está dentro do diretório `src`;
-- a implementação está dentro da função `getProductsRichInVitamin`.
+- A implementação está dentro da função `getProductsRichInVitamin`.
 
 ### Regras de negócio
 
-- Sua função deve, obrigatoriamente, retornar um `array` de objetos com as seguintes chaves:
-    - **`description`:** descrição do produto, sem nenhuma modificação
+- A função deve retornar um `array` de objetos com as seguintes chaves:
 
-    - **`formattedPrice`:** prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`
-
-    - **`vitaminsInformation`:** deve ser um `array` de `string`. O texto dos elementos desse array deve seguir o formato `{nome da vitamina} - {quantidade de vitamina presente}`. A informação do nome da vitamina é encontrada nas **chaves do objeto `nutritionalInfo.vitamins`** do produto em estoque, já a informação de quantidade de vitamina presente é encontrada nos valores do mesmo objeto
+```js
+[
+  {
+    description: 'descrição do produto, sem nenhuma modificação',
+    formattedPrice: 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
+    vitaminsInformation: 'deve ser um `array` de `string`. O texto dos elementos desse array deve seguir o formato `{nome da vitamina} - {quantidade de vitamina presente}`. A informação do nome da vitamina é encontrada nas **chaves do objeto `nutritionalInfo.vitamins`** do produto em estoque, já a informação de quantidade de vitamina presente é encontrada nos valores do mesmo objeto'
+  }
+]
+```
 
 ### A função `getProductsRichInVitamin` ao receber um array com objetos
 
