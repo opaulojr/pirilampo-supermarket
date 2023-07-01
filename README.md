@@ -169,7 +169,7 @@ Buscando manter o supermercado sempre bem abastecido de mercadorias, precisamos 
 
 ## 5. Implementado uma função que retorne o total de produtos em estoque
 
-A quantidade única de produtos não consegue representar o tamanho do estoque. Um grande exemplo disso é que podemos ter 1 produto **Farinha** cadastrado no sistema, mas com centenas de pacotes no estoque. É importante para o dono do empreendimento ter noção do tamanho do seu estoque, pois dependendo do movimento do seu supermercado, expandir o galpão que armazena todos os produtos pode ser uma opção.
+A quantidade única de produtos não consegue representar o tamanho do estoque, um exemplo disso é que podemos ter 1 produto **Farinha** cadastrado no sistema, mas com centenas de pacotes no estoque. É importante para o dono do empreendimento ter noção do tamanho do seu estoque, pois dependendo do movimento do seu supermercado.
 
 <details>
 
@@ -312,7 +312,7 @@ Outra funcionalidade crucial é a busca por produtos através da marca, que tamb
 
 </details>
 
-## 8. Crie uma função que busque por produtos na promoção
+## 8. Implementado uma função que busque por produtos na promoção
 
 Todo supermercado tem promoções, certo? Logo uma área com os produtos em oferta é altamente estratégico. Pensando nisso foi desenvolvido uma função que recupera os produtos em promoção, para serem adicionados em uma nova seção.
 
@@ -420,3 +420,60 @@ Com o aumento da demanda de produtos para pessoas com algum tipo de alergia ou i
 ```
 
 </details>
+
+## 10. Implementado uma função que retorne todos os produtos que possuam alguma vitamina em seu valor nutricional
+
+Pensando na saúde das pessoas, implementar uma seção na Página Inicial para listar alimentos ricos em vitaminas me parece uma boa ideia.
+
+<details>
+
+<summary><strong>Foi desenvolvido uma função que retorna produtos ricos em vitaminas</strong></summary>
+
+### Onde foi desenvolvido
+
+- O arquivo onde foi implementado a solução se chama `products-rich-in-vitamin.js` e está dentro do diretório `src`;
+- a implementação está dentro da função `getProductsRichInVitamin`.
+
+### Regras de negócio
+
+- Sua função deve, obrigatoriamente, retornar um `array` de objetos com as seguintes chaves:
+    - **`description`:** descrição do produto, sem nenhuma modificação
+
+    - **`formattedPrice`:** prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`
+
+    - **`vitaminsInformation`:** deve ser um `array` de `string`. O texto dos elementos desse array deve seguir o formato `{nome da vitamina} - {quantidade de vitamina presente}`. A informação do nome da vitamina é encontrada nas **chaves do objeto `nutritionalInfo.vitamins`** do produto em estoque, já a informação de quantidade de vitamina presente é encontrada nos valores do mesmo objeto
+
+### A função `getProductsRichInVitamin` ao receber um array com objetos
+
+- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos **com informações de vitaminas**. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição**, o **valor formatado do produto** e a **lista de vitaminas disponíveis no produto**.
+- O valor retornado pela função é um `array` cujo os elementos são do tipo `object`;
+- Os objetos do array possuem 3 chaves: `description`, `formattedPrice` e `vitaminsInformation`;
+- O valor da chave `description` é o mesmo do objeto original, a chave `formattedPrice` dos objetos está dentro do formato `R$ XX.YY` ou `R$ X.YY` e a chave `vitaminsInformation` dos objetos está dentro do formato `{nome da vitamina} - {quantidade de vitamina presente}`;
+- A chave `vitaminsInformation` dos objetos é um `array`;
+
+### Exemplo do formato esperado pro array de retorno
+
+```js
+[
+  {
+    description: 'Nozes sem casca Fazenda São Francisco, pacote de 200g, fonte de gorduras boas e minerais.',
+    formattedPrice: 'R$ 19.99',
+    vitamins: [ 'vitaminB6 - 5' ]
+  },
+  {
+    description: 'Filé de salmão Seara, embalagem de 500g, fonte de proteínas e ômega-3.',
+    formattedPrice: 'R$ 39.99',
+    vitamins: ['vitaminA - 1', 'vitaminD - 50', 'vitaminB6 - 25', 'vitaminB12 - 80']
+  },
+  {
+    description: 'Carne bovina moída Swift, pacote de 500g, ideal para preparar diversas receitas.',
+    formattedPrice: 'R$ 14.99',
+    vitamins: [ 'vitaminB6 - 15', 'vitaminB12 - 50' ]
+  },
+  ...
+]
+```
+
+</details>
+
+---
