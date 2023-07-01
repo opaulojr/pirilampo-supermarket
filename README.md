@@ -213,14 +213,8 @@ Agora a criação da função de buscar um produto pelo seu nome, que vai ajudar
 - Considere que pode existir produtos com nome similares ou quem está fazendo a pesquisa não sabe **exatamente** o nome do produto dentro de `data.json`. Portanto essa função **deve** retornar um `array` de produtos que possuem no nome o parâmetro passado na função;
 - Se o produto for encontrado, sua função irá retornar um array de objetos com as seguintes chaves:
 
-```js
-[
-  {
-    description: 'descrição do produto, sem nenhuma modificação',
-    formattedPrice: 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do `data.json` já se encontra nesse formato. Exemplo: `R$ 10.99`'
-  }
-]
-```
+  - **description:** 'descrição do produto, sem nenhuma modificação',
+  - **formattedPrice:** 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do `data.json` já se encontra nesse formato. Exemplo: `R$ 10.99`'
 
 - Se o produto não for encontrado, a função deve retornar `null`;
 - A função deve retornar `null` caso seja chamada **sem parâmetro**;
@@ -271,14 +265,8 @@ Outra funcionalidade crucial é a busca por produtos através da marca, que tamb
 - A função deve receber a marca como parâmetro;
 - Se produtos forem encontrados, a função deve retornar um novo `array` de objetos. Cada objeto deve ter as seguintes chaves:
 
-```js
-[
-  {
-    description: 'descrição do produto, sem nenhuma modificação',
-    formattedPrice: 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`'
-  }
-]
-```
+  - **description:** 'descrição do produto, sem nenhuma modificação',
+  - **formattedPrice:** 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`'
 
 - Se nenhum produto for encontrado, a função deve retornar um `array` vazio;
 - A função deve retornar um `array` vazio caso seja chamada **sem parâmetro**;
@@ -330,15 +318,9 @@ Todo supermercado tem promoções, certo? Logo uma área com os produtos em ofer
 - Um produto é considerado em promoção quando a chave `onSale` tiver o valor `true`;
 - Se produtos forem encontrados, a função irá retornar um novo `array` de objetos. Cada objeto deve ter as seguintes chaves:
 
-```js
-[
-  {
-    description: 'descrição do produto, sem nenhuma modificação',
-    formattedPrice: 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
-    onSale: 'informação booleana identificando que o produto está em promoção'
-  }
-]
-```
+  - **description:** 'descrição do produto, sem nenhuma modificação',
+  - **formattedPrice:** 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
+  - **onSale:** 'informação booleana identificando que o produto está em promoção'
 
 ### A função `getProductsOnSale` ao receber um array com objetos
 
@@ -384,15 +366,9 @@ Com o aumento da demanda de produtos para pessoas com algum tipo de alergia ou i
 
 - Sua função deve, obrigatoriamente, retornar um `array` de objetos com as seguintes chaves:
 
-```js
-[
-  {
-    description: 'descrição do produto, sem nenhuma modificação',
-    formattedPrice: 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
-    allergyOrIntoleranceMessage: 'deve ser do tipo `string` e só será adicionada ao novo objeto quando houver informações de alergia ou intolerância no objeto do produto. Deve seguir o seguinte formato: `Pode conter: {item 1},{item 2},{item N}`. A quantidade de itens varia de acordo com o tamanho do array `allergyOrIntolerance` do produto em estoque'
-  }
-]
-```
+  - **description:** 'descrição do produto, sem nenhuma modificação',
+  - **formattedPrice:** 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
+  - **allergyOrIntoleranceMessage:** 'deve ser do tipo `string` e só será adicionada ao novo objeto quando houver informações de alergia ou intolerância no objeto do produto. Deve seguir o seguinte formato: `Pode conter: {item 1},{item 2},{item N}`. A quantidade de itens varia de acordo com o tamanho do array `allergyOrIntolerance` do produto em estoque'
 
 ### A função `getProductsWithAllergyOrIntolerance` ao receber um array com objetos
 
@@ -438,15 +414,9 @@ Pensando na saúde das pessoas, implementar uma seção na Página Inicial para 
 
 - A função deve retornar um `array` de objetos com as seguintes chaves:
 
-```js
-[
-  {
-    description: 'descrição do produto, sem nenhuma modificação',
-    formattedPrice: 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
-    vitaminsInformation: 'deve ser um `array` de `string`. O texto dos elementos desse array deve seguir o formato `{nome da vitamina} - {quantidade de vitamina presente}`. A informação do nome da vitamina é encontrada nas **chaves do objeto `nutritionalInfo.vitamins`** do produto em estoque, já a informação de quantidade de vitamina presente é encontrada nos valores do mesmo objeto'
-  }
-]
-```
+  - **description:** 'descrição do produto, sem nenhuma modificação',
+  - **formattedPrice:** 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
+  - **vitaminsInformation:** 'deve ser um `array` de `string`. O texto dos elementos desse array deve seguir o formato `{nome da vitamina} - {quantidade de vitamina presente}`. A informação do nome da vitamina é encontrada nas **chaves do objeto `nutritionalInfo.vitamins`** do produto em estoque, já a informação de quantidade de vitamina presente é encontrada nos valores do mesmo objeto'
 
 ### A função `getProductsRichInVitamin` ao receber um array com objetos
 
@@ -463,17 +433,17 @@ Pensando na saúde das pessoas, implementar uma seção na Página Inicial para 
   {
     description: 'Nozes sem casca Fazenda São Francisco, pacote de 200g, fonte de gorduras boas e minerais.',
     formattedPrice: 'R$ 19.99',
-    vitamins: [ 'vitaminB6 - 5' ]
+    vitaminsInformation: [ 'vitaminB6 - 5' ]
   },
   {
     description: 'Filé de salmão Seara, embalagem de 500g, fonte de proteínas e ômega-3.',
     formattedPrice: 'R$ 39.99',
-    vitamins: ['vitaminA - 1', 'vitaminD - 50', 'vitaminB6 - 25', 'vitaminB12 - 80']
+    vitaminsInformation: ['vitaminA - 1', 'vitaminD - 50', 'vitaminB6 - 25', 'vitaminB12 - 80']
   },
   {
     description: 'Carne bovina moída Swift, pacote de 500g, ideal para preparar diversas receitas.',
     formattedPrice: 'R$ 14.99',
-    vitamins: [ 'vitaminB6 - 15', 'vitaminB12 - 50' ]
+    vitaminsInformation: [ 'vitaminB6 - 15', 'vitaminB12 - 50' ]
   },
   ...
 ]
