@@ -281,18 +281,18 @@ Outra funcionalidade crucial é a busca por produtos através da marca, que tamb
 ```
 
 - Se nenhum produto for encontrado, a função deve retornar um `array` vazio;
-- A função deve retornar um `array` vazio caso seja chamada **sem parâmetro**.
-- A pesquisa deve ser `case-insensitive` e `accent-insensitive`:
+- A função deve retornar um `array` vazio caso seja chamada **sem parâmetro**;
+- A pesquisa deve ser `case-insensitive` e `accent-insensitive`;
 
 ### A função `searchProductsByBrand` ao receber um array com objetos
 
-- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos de uma **marca** específica. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição** e **valor formatado do produto**, caso contrário a função retornará **uma lista vazia**.
-- Ao buscar produtos pela marca, o array retornado tem objetos cuja chave `description` seja a mesma do objeto original e a chave `formattedPrice` esteja dentro do formato `R$ XX.YY` ou `R$ X.YY`.
+- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos de uma **marca** específica. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição** e **valor formatado do produto**, caso contrário a função retornará **uma lista vazia**;
+- Ao buscar produtos pela marca, o array retornado tem objetos cuja chave `description` seja a mesma do objeto original e a chave `formattedPrice` esteja dentro do formato `R$ XX.YY` ou `R$ X.YY`;
 - Ao buscar por uma marca existente, o valor retornado pela função é um `array` de elementos do tipo `object`;
 - Buscar por uma marca inexistente, retornará um array `vazio`;
 - Chamar a função sem passar parâmetro, retornará um array `vazio`;
 - Buscar pela marca "Hortifruti", utilizando o `data.json` como fonte do estoque, a função retorna um array com `6` elementos;
-- Ao buscar pela marca de produto com **acentos** ou **maiúsculas** e **minúsculas**, a função retornará o produto mesmo que o parâmetro tenha sido passado sem respeitar acentuação e sensibilidade do nome do marca.
+- Ao buscar pela marca de produto com **acentos** ou **maiúsculas** e **minúsculas**, a função retornará o produto mesmo que o parâmetro tenha sido passado sem respeitar acentuação e sensibilidade do nome do marca;
 
 ### Exemplo do formato esperado caso a função encontre produtos de uma marca
 
@@ -342,10 +342,10 @@ Todo supermercado tem promoções, certo? Logo uma área com os produtos em ofer
 
 ### A função `getProductsOnSale` ao receber um array com objetos
 
-- A função percorrer o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos **em promoção**. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição**, o **valor formatado do produto** e a **informação booleana de oferta**.
+- A função percorrer o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos **em promoção**. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição**, o **valor formatado do produto** e a **informação booleana de oferta**;
   - Ao buscar por produtos em promoção, o valor retornado pela função é um `array` de elementos do tipo `object`;
   - Os objetos do array tem 3 chaves: `description`, `formattedPrice` e `onSale`;
-  - O array retornado tem objetos cuja chave `description` seja a mesma do objeto original, a chave `formattedPrice` esteja dentro do formato `R$ XX.YY` ou `R$ X.YY` e a chave `onSale` seja `true`.
+  - O array retornado tem objetos cuja chave `description` seja a mesma do objeto original, a chave `formattedPrice` está no formato `R$ XX.YY` ou `R$ X.YY` e a chave `onSale` é `true`;
 
 ### Exemplo do formato esperado caso a função encontre produtos em promoção
 
@@ -360,6 +360,60 @@ Todo supermercado tem promoções, certo? Logo uma área com os produtos em ofer
     description: "Filé de salmão Seara, embalagem de 500g, fonte de proteínas e ômega-3.",
     formattedPrice: 'R$ 39.99',
     onSale: true
+  },
+  ...
+]
+```
+
+</details>
+
+## 9. Implementado uma função que retorne todos os produtos com informações sobre alergia ou intolerância
+
+Com o aumento da demanda de produtos para pessoas com algum tipo de alergia ou intolerância alimentar, é importante que o site do supermercado mostre essas informações para ter mais assertividade nas vendas.
+
+<details>
+
+<summary><strong>Foi desenvolvido uma função que retorna os produtos em estoque com informações de alergia ou intolerância alimentar</strong></summary>
+
+### Onde foi desenvolvido
+
+- O arquivo onde foi implementado a solução se chama `products-with-allergy-or-intolerance.js` e está dentro do diretório `src`;
+- A implementação está dentro da função `getProductsWithAllergyOrIntolerance`;
+
+### Regras de negócio
+
+- Sua função deve, obrigatoriamente, retornar um `array` de objetos com as seguintes chaves:
+
+```js
+[
+  {
+    description: 'descrição do produto, sem nenhuma modificação',
+    formattedPrice: 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
+    allergyOrIntoleranceMessage: 'deve ser do tipo `string` e só será adicionada ao novo objeto quando houver informações de alergia ou intolerância no objeto do produto. Deve seguir o seguinte formato: `Pode conter: {item 1},{item 2},{item N}`. A quantidade de itens varia de acordo com o tamanho do array `allergyOrIntolerance` do produto em estoque'
+  }
+]
+```
+
+### A função `getProductsWithAllergyOrIntolerance` ao receber um array com objetos
+
+- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos **com informações de alergia e intolerância alimentar**. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição**, o **valor formatado do produto** e a **informação formatada de alergia e intolerância**;
+- Buscar por produtos com informação de alergia ou intolerância, o valor retornado pela função deve ser um `array` cujo os elementos sejam do tipo `object`;
+- Os objetos do array possuem as chaves `description`, `formattedPrice` e `allergyOrIntoleranceMessage`;
+- O valor da chave `description` é o mesmo do objeto original, a chave `formattedPrice` está no formato `R$ XX.YY` ou `R$ X.YY` e, quando o produto possui informações de alergia ou intolerância, o valor da chave `allergyOrIntoleranceMessage` é o formato `Pode conter: {item 1},{item 2},{item N}`;
+
+### Exemplo do formato esperado para o array de retorno
+
+```js
+[
+  {
+    description: 'Arroz integral Tio João, pacote de 1kg, rico em fibras e vitaminas.',
+    formattedPrice: "R$ 10.99",
+    allergyOrIntoleranceMessage: 'Pode conter: glúten,soja,castanhas'
+  },
+  {
+    description: 'Iogurte Danone, pote de 500g, fonte de cálcio e probióticos.',
+    formattedPrice: "R$ 5.49",
+    allergyOrIntoleranceMessage: 'Pode conter: leite'
   },
   ...
 ]
