@@ -3,6 +3,7 @@
 Este é meu 3° projeto durante a minha jornada na Trybe!
 
 Nele sou responsável por desenvolver funções que serão utilizadas para implementar as regras de negócio do site de **Supermercado Pirilampo**. As funcionalidades envolvem a manipulação e busca de produtos em estoque, minha responsabilidade é pela parte lógica, portanto, não desenvolvi nenhuma tela (HTML e CSS).
+Durante o projeto, pude trabalhar com variáveis e tipos de dados para representar e armazenar informações, também utilizei arrays para manipular listas de elementos e objetos para representar informações de forma estruturada; Utilizei for/forEach para percorrer listas de dados e apliquei condicionais if/else para inserir lógica nas regras de negócio. Além disso, apliquei lógica de programação para resolver problemas.
 
 ## Estrutura do Repositório
 
