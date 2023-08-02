@@ -17,7 +17,7 @@ Durante o projeto, pude trabalhar com variáveis e tipos de dados para represent
 
 ## Funcionalidades Implementadas
 
-## 1. Implementado uma função que retorne a quantidade de produtos únicos em estoque
+## Implementado uma função que retorne a quantidade de produtos únicos em estoque
 
 O site do Supermercado Pirilampo possui uma área de Gestão de Estoque. Essa área precisa mostrar a quantidade de produtos únicos em estoque, um recurso muito útil para conseguir gerenciar a variedade de mercadorias do estabelecimento.
 
@@ -45,7 +45,7 @@ O site do Supermercado Pirilampo possui uma área de Gestão de Estoque. Essa á
 
 </details>
 
-## 2. Implementado uma função que retorne os nomes dos produtos únicos em estoque
+## Implementado uma função que retorne os nomes dos produtos únicos em estoque
 
 Além da quantidade de produtos únicos, a área de Gestão de Estoque deve apresentar a lista com o nome dos produtos, funcionalidade muito útil para visualizar quais os produtos que possui em estoque.
 
@@ -87,7 +87,7 @@ Além da quantidade de produtos únicos, a área de Gestão de Estoque deve apre
 
 </details>
 
-## 3. Implementado uma função que retorne os nomes dos produtos indisponíveis do estoque
+## Implementado uma função que retorne os nomes dos produtos indisponíveis do estoque
 
 Para conseguir se planejar melhor com a compra de produtos que estão em falta, precisamos ter conhecimento de quais produtos são esses.
 
@@ -126,7 +126,7 @@ Para conseguir se planejar melhor com a compra de produtos que estão em falta, 
 
 </details>
 
-## 4. Implementado uma função que retorne os produtos com baixo estoque em um formato específico
+## Implementado uma função que retorne os produtos com baixo estoque em um formato específico
 
 Buscando manter o supermercado sempre bem abastecido de mercadorias, precisamos ter visibilidade não só dos produtos que estão em falta, mas também dos produtos que estão prestes a se esgotar.
 
@@ -168,7 +168,7 @@ Buscando manter o supermercado sempre bem abastecido de mercadorias, precisamos 
 
 </details>
 
-## 5. Implementado uma função que retorne o total de produtos em estoque
+## Implementado uma função que retorne o total de produtos em estoque
 
 A quantidade única de produtos não consegue representar o tamanho do estoque, um exemplo disso é que podemos ter 1 produto **Farinha** cadastrado no sistema, mas com centenas de pacotes no estoque. É importante para o dono do empreendimento ter noção do tamanho do seu estoque, pois dependendo do movimento do seu supermercado.
 
@@ -195,7 +195,7 @@ A quantidade única de produtos não consegue representar o tamanho do estoque, 
 
 </details>
 
-## 6. Implementado uma função que busque um produto pelo nome
+## Implementado uma função que busque um produto pelo nome
 
 Agora a criação da função de buscar um produto pelo seu nome, que vai ajudar a construir a Página Inicial do Supermercado Pirilampo.
 
@@ -248,7 +248,7 @@ Agora a criação da função de buscar um produto pelo seu nome, que vai ajudar
 
 </details>
 
-## 7. Implementado uma função que busque por produtos de uma marca específica
+## Implementado uma função que busque por produtos de uma marca específica
 
 Outra funcionalidade crucial é a busca por produtos através da marca, que também vai fazer parte da Página Inicial do Supermercado Pirilampo.
 
@@ -301,7 +301,7 @@ Outra funcionalidade crucial é a busca por produtos através da marca, que tamb
 
 </details>
 
-## 8. Implementado uma função que busque por produtos na promoção
+## Implementado uma função que busque por produtos na promoção
 
 Todo supermercado tem promoções, certo? Logo uma área com os produtos em oferta é altamente estratégico. Pensando nisso foi desenvolvido uma função que recupera os produtos em promoção, para serem adicionados em uma nova seção.
 
@@ -350,7 +350,7 @@ Todo supermercado tem promoções, certo? Logo uma área com os produtos em ofer
 
 </details>
 
-## 9. Implementado uma função que retorne todos os produtos com informações sobre alergia ou intolerância
+## Implementado uma função que retorne todos os produtos com informações sobre alergia ou intolerância
 
 Com o aumento da demanda de produtos para pessoas com algum tipo de alergia ou intolerância alimentar, é importante que o site do supermercado mostre essas informações para ter mais assertividade nas vendas.
 
@@ -398,7 +398,7 @@ Com o aumento da demanda de produtos para pessoas com algum tipo de alergia ou i
 
 </details>
 
-## 10. Implementado uma função que retorne todos os produtos que possuam alguma vitamina em seu valor nutricional
+## Implementado uma função que retorne todos os produtos que possuam alguma vitamina em seu valor nutricional
 
 Pensando na saúde das pessoas, implementar uma seção na Página Inicial para listar alimentos ricos em vitaminas me parece uma boa ideia.
 
