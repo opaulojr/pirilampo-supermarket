@@ -1,455 +1,466 @@
-# Projeto Pirilampo Supermarket
+# Project Pirilampo Supermarket
 
-Este é meu 3° projeto durante a minha jornada na Trybe!
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-Nele sou responsável por desenvolver funções que serão utilizadas para implementar as regras de negócio do site de **Supermercado Pirilampo**. As funcionalidades envolvem a manipulação e busca de produtos em estoque, minha responsabilidade é pela parte lógica, portanto, não desenvolvi nenhuma tela (HTML e CSS).
-Durante o projeto, pude trabalhar com variáveis e tipos de dados para representar e armazenar informações, também utilizei arrays para manipular listas de elementos e objetos para representar informações de forma estruturada; Utilizei for/forEach para percorrer listas de dados e apliquei condicionais if/else para inserir lógica nas regras de negócio. Além disso, apliquei lógica de programação para resolver problemas.
+## About
 
-## Estrutura do Repositório
+This is my 3rd project during my journey at Trybe!
 
-- A pasta `src` contém todo o código;
+I am responsible for developing functions that will be used to implement the business rules of the **Pirilampo Supermarket** website. The functionalities involve the manipulation and search of products in stock, and my responsibility lies in the logical part, so I did not develop any screens (HTML and CSS). Throughout the project, I worked with variables and data types to represent and store information. I also used arrays to manipulate lists of elements and objects to represent information in a structured way. I employed for/forEach loops to traverse data lists and applied if/else conditionals to insert logic into the business rules. Additionally, I applied programming logic to solve problems.
 
-- Cada implementação foi desenvolvida em um arquivo específico;
+## Repository Structure
 
-- Cada implementação foi desenvolvida em uma função específica;
+- The `src` folder contains all the code
 
-- A base de dados utilizada se encontra no arquivo `data.json`, dentro do diretório `src`;
+- Each implementation was developed in a specific file
 
-## Funcionalidades Implementadas
+- Each implementation was developed in a specific function
 
-## Implementado uma função que retorne a quantidade de produtos únicos em estoque
+- The database used is located in the `data.json` file within the `src` directory
 
-O site do Supermercado Pirilampo possui uma área de Gestão de Estoque. Essa área precisa mostrar a quantidade de produtos únicos em estoque, um recurso muito útil para conseguir gerenciar a variedade de mercadorias do estabelecimento.
+## Implemented Features
+
+## Implemented a function that returns the quantity of unique products in stock
+
+The Pirilampo Supermarket website features a Stock Management area. This section needs to display the quantity of unique products in stock, a very useful feature for efficiently managing the variety of goods in the establishment
 
 <details>
+  <summary>
+    <strong>Developed a function that returns the number of unique products in stock</strong>
+  </summary>
 
-<summary><strong>Foi desenvolvido uma função que retorna o número de produtos únicos em estoque</strong></summary>
+### Where it was developed
 
-### Onde foi desenvolvido
+- The file where the solution was implemented is called `unique-products-amount.js` and is inside the `src` directory
+- The implementation is within the `getUniqueProductsAmount` function
 
-- O arquivo onde foi implementado a solução se chama `unique-products-amount.js` e está dentro do diretório `src`;
-- A implementação está dentro da função `getUniqueProductsAmount`;
+### Business rules
 
-### Regras de negócio
+- The function should return a `number`
+- A product can have 50 units in stock but should be counted only as 1 product
+- Each object in the `stockProducts` array is a unique product
 
-- A função deve retornar um `number`;
-- Um produto pode ter 50 unidades em estoque mas deve ser contabilizado apenas como 1 produto;
-- Cada objeto do array `stockProducts` é um produto único;
+### The `getUniqueProductsAmount` function when receiving an array with objects
 
-### A função `getUniqueProductsAmount` ao receber um array com objetos
-
-- Retorna um valor do tipo `number`;
-- Ao utilizar o `data.json` como fonte do estoque, a função retorna o número `29`;
-- Em um cenário onde o array tenha 10 objetos, a função deve retornar o número `10`;
-- Em um cenário onde o array esteja vazio, a função deve retornar o número `0`;
-
+- Returns a value of type `number`.
+- When using `data.json` as the source of the stock, the function returns the number `29`
+- In a scenario where the array has 10 objects, the function should return the number `10`
+- In a scenario where the array is empty, the function should return the number `0`
 </details>
 
-## Implementado uma função que retorne os nomes dos produtos únicos em estoque
 
-Além da quantidade de produtos únicos, a área de Gestão de Estoque deve apresentar a lista com o nome dos produtos, funcionalidade muito útil para visualizar quais os produtos que possui em estoque.
+## Implemented a function that returns the names of unique products in stock
+
+In addition to the quantity of unique products, the Stock Management area should display a list with the names of the products, a very useful functionality for visualizing which products are in stock
 
 <details>
+  <summary>
+    <strong>Developed a function that returns an array with the names of unique products in stock</strong>
+  </summary>
 
-<summary><strong>Foi desenvolvido uma função que retorna um array com os nomes dos produtos únicos em estoque</strong></summary>
+### Where it was developed
 
-### Onde foi desenvolvido
+- The file where the solution was implemented is called `unique-products-name.js` and is inside the `src` directory
+- The implementation is within the `getUniqueProductsName` function
 
-- O arquivo onde foi implementado a solução se chama `unique-products-name.js` e está dentro do diretório `src`;
-- A implementação está dentro da função `getUniqueProductsName`;
+### Business rules
 
-### Regras de negócio
+- The function should return an `array` of `string`
+- The `array` returned by the function should contain the names of **all** the products from the array of objects in stock
 
-- A função deve retornar um `array` de `string`;
-- O `array` retornado pela função deve ter o nome de **todos** os produtos do `array` de objetos em estoque;
+### The `getUniqueProductsName` function when receiving an array with objects
 
-### A função `getUniqueProductsName` ao receber um array com objetos
+- The value returned by the function is an `array`
+- All elements in the array returned by the function are of type `string`
+- It traverses the `stockProducts` array, which contains product objects from the stock, in search of the **name** of each product. In the end, the function returns a new list that stores the names of the products
+- In the case of the `data.json` file, the property where the name of each product is located is `productName`. If another file is used, the function should be adjusted to correspond to the correct property where the names of the objects in that file are located
+- When using `data.json` as the source of the stock, the function returns an array with `29` elements
+- In a scenario where the stock has 10 objects, the function should return an array with `10` elements
+- In a scenario where the stock is empty, the function should return an array with `0` elements
 
-- O valor retornado pela função é um `array`;
-- Todos os elementos do array retornado pela função é do tipo `string`;
-- Percorre o array `stockProducts` que contém objetos de produto do estoque, em busca do **nome** de cada produto. Ao final, a função retorna um nova lista que armazena o nome dos produtos;
-- No caso do arquivo `data.json`, a propriedade que se encontra o nome de cada produto é `productName`, caso seja usado outro arquivo a função deve ser alterada para corresponder a propriedade correta que se encontra o nome dos objetos do arquivo em questão;
-- Ao utilizar o `data.json` como fonte do estoque, a função retorna um array com `29` elementos;
-- Em um cenário onde o estoque tenha 10 objetos, a função deve retornar um array com `10` elementos;
-- Em um cenário onde o estoque esteja vazio, a função deve retornar um array com `0` elementos;
-
-### Exemplo do formato esperado para o array de retorno
+### Example of the expected format for the return array
 
 ```js
 [
-  'Arroz',
-  'Feijão',
-  'Macarrão',
-  'Açúcar',
+  'Rice',
+  'Beans',
+  'Pasta',
+  'Sugar',
   ...
 ]
 ```
-
 </details>
 
-## Implementado uma função que retorne os nomes dos produtos indisponíveis do estoque
 
-Para conseguir se planejar melhor com a compra de produtos que estão em falta, precisamos ter conhecimento de quais produtos são esses.
+## Implemented a function that returns the names of out-of-stock products
+
+To better plan for the purchase of products that are out of stock, we need to know which products are unavailable
 
 <details>
+  <summary>
+    <strong>Developed a function that returns an array with the names of out-of-stock products</strong>
+  </summary>
 
-<summary><strong>Foi desenvolvido uma função que retorna um array com os nomes dos produtos indisponíveis</strong></summary>
+### Where it was developed
 
-### Onde foi desenvolvido
+- The file where the solution was implemented is called `out-of-stock-products.js` and is inside the `src` directory
+- The implementation is within the `getOutOfStockProducts` function
 
-- O arquivo onde foi implementado a solução se chama `out-of-stock-products.js` e está dentro do diretório `src`;
-- A implementação está dentro da função `getOutOfStockProducts`;
+### Business rules
 
-### Regras de negócio
+- The function should return an `array` of `string`
+- A product will be considered out of stock when its `quantityInStock` property is **equal to `0`**
 
-- A função deve retornar um `array` de `string`;
-- Um produto será considerado fora de estoque quando a propriedade `quantityInStock` dele for **igual a `0`**;
+### The `getOutOfStockProducts` function when receiving an array with objects
 
-### A função `getUniqueProductsName` ao receber um array com objetos
+- The value returned by the function is an `array`
+- All elements in the array returned by the function are of type `string`
+- The function traverses the `stockProducts` array, which contains product objects from the stock, in search of the **name** of each product that is **out of stock**. In the end, the function returns a new list that stores the names of the products
+- When using `data.json` as the source of the stock, the function returns an array with `4` elements
+- In a scenario where the stock has 20 out-of-stock products, the function should return an array with `20` elements
 
-- O valor retornado pela função é um `array`;
-- Todos os elementos do array retornado pela função é do tipo `string`;
-- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca do **nome** de cada produto que esteja **indisponível** no estoque. Ao final, a função retorna uma nova lista que armazena o nome dos produtos;
-- Ao utilizar o `data.json` como fonte do estoque, a função retorna um array com `4` elementos;
-- Em um cenário onde o estoque tenha 20 produtos indisponíveis, a função deve retornar um array com `20` elementos;
-
-### Exemplo do formato esperado para o array de retorno
+### Example of the expected format for the return array
 
 ```js
 [
-  'Lentilha',
-  'Suco de uva',
-  'Nozes',
+  'Lentils',
+  'Grape Juice',
+  'Walnuts',
   ...
 ]
 ```
-
 </details>
 
-## Implementado uma função que retorne os produtos com baixo estoque em um formato específico
 
-Buscando manter o supermercado sempre bem abastecido de mercadorias, precisamos ter visibilidade não só dos produtos que estão em falta, mas também dos produtos que estão prestes a se esgotar.
+## Implemented a function that returns products with low stock in a specific format
+
+In an effort to keep the supermarket well-stocked with goods, we need visibility not only into products that are out of stock but also into products that are about to run out
 
 <details>
+  <summary>
+    <strong>Developed a function that returns an array with products with low stock in a specific format</strong>
+  </summary>
 
-<summary><strong>Foi desenvolvido uma função que retorne um array com os produtos com baixo estoque, em um formato específico</strong></summary>
+### Where it was developed
 
-### Onde foi desenvolvido
+- The file where the solution was implemented is called `low-stock-products.js` and is inside the `src` directory
+- The implementation is within the `getLowStockProducts` function
 
-- O arquivo onde foi implementado a solução se chama `low-stock-products.js` e está dentro do diretório `src`;
-- A implementação está dentro da função `getLowStockProducts`;
+### Business rules
 
-### Regras de negócio
+- Your function should return an `array` of `string`
+- A product will be considered to have low stock when its `quantityInStock` property is **greater than `0`** and **less than or equal to `10`**
+- The format of the elements in the array should be: `{product name}: {quantity in stock} unit` if the quantity in stock is `1`
+- The format of the elements in the array should be: `{product name}: {quantity in stock} units` if the quantity in stock is greater than `1`
 
-- Sua função deve retornar um `array` de `string`;
-- Um produto será considerado com baixo estoque quando a propriedade `quantityInStock` dele for **maior que `0`** e **menor ou igual a `10`**;
-- O formato dos elementos do array deve ser: `{nome do produto}: {quantidade em estoque} unidade` caso a quantidade em estoque seja `1`;
-- O formato dos elementos do array deve ser: `{nome do produto}: {quantidade em estoque} unidades` caso a quantidade em estoque seja maior que `1`;
+### The `getLowStockProducts` function when receiving an array with objects
 
-### A função `getLowStockProducts` ao receber um array com objetos
+- The value returned by the function is an `array`
+- All elements in the array returned by the function are of type `string`
+- The function traverses the `stockProducts` array, which contains product objects from the stock, in search of the **name** and **quantity in stock** of each product that has low stock. In the end, the function returns a new list that stores a customized message indicating the **name** and **quantity of the product**
+- The elements in the returned array are in the format `{product name}: {quantity in stock} units`
+- When using `data.json` as the source of the stock, the function returns an array with `7` elements
+- In a scenario where 20 products have low stock, the function should return an array with `20` elements
 
-- O valor retornado pela função é um `array`;
-- Todos os elementos do array retornado pela função é do tipo `string`;
-- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca do **nome** e da **quantidade em estoque** de cada produto que esteja com baixo estoque. Ao final, a função retorna uma nova lista que armazene uma mensagem personalizada informando o **nome** e a **quantidade do produto**;
-- Os elementos do array retornados estão no formato `{nome do produto}: {quantidade em estoque} unidades`;
-- Ao utilizar o `data.json` como fonte do estoque, a função retorna um array com `7` elementos;
-- Em um cenário onde 20 produtos estão com baixo estoque, a função deve retornar um array com `20` elementos;
-
-### Exemplo do formato esperado para o array de retorno
+### Example of the expected format for the return array
 
 ```js
 [
-  'Nutella: 10 unidades',
-  'Salmão: 5 unidades',
-  'Pipoca: 1 unidades',
+  'Nutella: 10 units',
+  'Salmon: 5 units',
+  'Popcorn: 1 unit',
   ...
 ]
 ```
-
 </details>
 
-## Implementado uma função que retorne o total de produtos em estoque
 
-A quantidade única de produtos não consegue representar o tamanho do estoque, um exemplo disso é que podemos ter 1 produto **Farinha** cadastrado no sistema, mas com centenas de pacotes no estoque. É importante para o dono do empreendimento ter noção do tamanho do seu estoque, pois dependendo do movimento do seu supermercado.
+## Implemented a function that returns the total quantity of products in stock
+
+The unique quantity of products cannot represent the size of the stock adequately. For example, we can have 1 product **Flour** registered in the system, but with hundreds of packages in stock. It is essential for the business owner to have an understanding of the size of their stock, depending on the movement of their supermarket
 
 <details>
+  <summary>
+    <strong>Developed a function that returns the quantity of units for all products in stock</strong>
+  </summary>
 
-<summary><strong>Foi desenvolvido uma função que retorna a quantidade de unidades de todos os produtos em estoque</strong></summary>
+### Where it was developed
 
-### Onde foi desenvolvido
+- The file where the solution was implemented is called `products-amount.js` and is inside the `src` directory
+- The implementation is within the `getProductsAmount` function
 
-- O arquivo onde foi implementado a solução se chama `products-amount.js` e está dentro do diretório `src`;
-- A implementação deve está da função `getProductsAmount`;
+### Business rules
 
-### Regras de negócio
+- The function should return a `number`
+- Use the `quantityInStock` property of the product object from the stock to accumulate the totals for all products in the stock
 
-- A função deve retornar um `number`;
-- Utilize a propriedade `quantityInStock`, do objeto de produto do estoque, para acumular os totais de todos os produtos do estoque;
+### The `getProductsAmount` function when receiving an array with objects
 
-### A função `getProductsAmount` ao receber um array com objetos
-
-- O valor retornado pela função é do tipo `number`;
-- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca da **quantidade em estoque** de cada produto. Ao final, a função retorna o somatório da quantidade de todos os produtos em estoque;
-- Ao utilizar o `data.json` como fonte do estoque, a função retorna o número `628`;
-- Em um cenário onde o estoque tenha 4857 produtos, a função deve retornar o número `4857`;
-
+- The value returned by the function is of type `number`
+- The function traverses the `stockProducts` array, which contains product objects from the stock, in search of the **quantity in stock** for each product. In the end, the function returns the sum of the quantity for all products in stock
+- When using `data.json` as the source of the stock, the function returns the number `628`
+- In a scenario where the stock has 4857 products, the function should return the number `4857`
 </details>
 
-## Implementado uma função que busque um produto pelo nome
 
-Agora a criação da função de buscar um produto pelo seu nome, que vai ajudar a construir a Página Inicial do Supermercado Pirilampo.
+## Implemented a function that searches for a product by name
+
+Now, the creation of a function to search for a product by its name, which will help build the Home Page of Pirilampo Supermarket
 
 <details>
+  <summary>
+    <strong>Developed a function that allows searching for a product by its name</strong>
+  </summary>
 
-<summary><strong>Foi desenvolvido uma função que permita buscar um produto pelo seu nome</strong></summary>
+### Where it was developed
 
-### Onde foi desenvolvido
+- The file where the solution was implemented is called `search-product-by-name.js` and is inside the `src` directory
+- The implementation is within the `searchProductByName` function
 
-- O arquivo onde foi implementado a solução se chama `search-product-by-name.js` e está dentro do diretório `src`;
-- A implementação está dentro da função `searchProductByName`;
+### Business rules
 
-### Regras de negócio
+- The function should receive the product name as a parameter
+- Consider that there may be products with similar names or that the person conducting the search does not know **exactly** the name of the product within `data.json`. Therefore, this function **must** return an `array` of products that have the parameter passed in the function name
+- If the product is found, your function will return an array of objects with the following keys:
 
-- A função deve receber o nome do produto por parâmetro;
-- Considere que pode existir produtos com nome similares ou quem está fazendo a pesquisa não sabe **exatamente** o nome do produto dentro de `data.json`. Portanto essa função **deve** retornar um `array` de produtos que possuem no nome o parâmetro passado na função;
-- Se o produto for encontrado, sua função irá retornar um array de objetos com as seguintes chaves:
+  - **description:** 'product description, without any modification',
+  - **formattedPrice:** 'Real currency prefix (`R$`) added to the product price (`1.99`, for example), with 1 space between the data. Additionally, the decimal separator will be a period (`.`), since the information in `data.json` is already in this format. Example: `R$ 10.99`'
 
-  - **description:** 'descrição do produto, sem nenhuma modificação',
-  - **formattedPrice:** 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do `data.json` já se encontra nesse formato. Exemplo: `R$ 10.99`'
+- If the product is not found, the function should return `null`
+- The function should return `null` if called **without a parameter**
+- The search should be `case-insensitive` and `accent-insensitive`
 
-- Se o produto não for encontrado, a função deve retornar `null`;
-- A função deve retornar `null` caso seja chamada **sem parâmetro**;
-- A pesquisa deve ser `case-insensitive` e `accent-insensitive`:
+### The `searchProductByName` function when receiving an array with objects
 
-### A função `searchProductByName` ao receber um array com objetos
+- The function traverses the `stockProducts` array, which contains product objects from the stock, in search of the **name** of a specific product. If the product is found, the function will return a list of objects with the properties of `description` and `formattedPrice`
+- When searching for an existing product, the returned array has objects whose `description` key is the same as the original object, and the `formattedPrice` key is in the format `R$ XX.YY` or `R$ X.YY`
+- When searching for an existing product, the value returned by the function is an `array` of elements of type `object`
+- Searching for a nonexistent product will return `null`
+- Calling the function without passing a parameter will return `null`
+- When searching for a product name with **accents** or **uppercase** and **lowercase**, the function will return the product even if the parameter has been passed without respecting the accentuation and sensitivity of the product name
 
-- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca do **nome** de um produto específico. Caso o produto seja encontrado, a função irá retornar uma lista de objetos com as propriedades de `description` e `formattedPrice`.
-- Ao buscar por um produto existente, o array retornado tem objetos cuja chave `description` seja a mesma do objeto original e a chave `formattedPrice` esteja dentro do formato `R$ XX.YY` ou `R$ X.YY`;
-- Ao buscar por um produto existente, o valor retornado pela função é um `array` de elementos do tipo `object`;
-- Buscar por um produto inexistente, retornará `null`;
-- Chamar a função sem passar parâmetro, retornará `null`.
-- Ao buscar por um nome de produto com **acentos** ou **maiúsculas** e **minúsculas**, a função retornará o produto mesmo que o parâmetro tenha sido passado sem respeitar acentuação e sensibilidade do nome do produto.
-
-### Exemplo do formato esperado caso a função encontre um produto
+### Example of the expected format if the function finds a product
 
 ```js
 [
   {
-    description: 'Cerveja Pilsen Brahma, lata de 350ml, sabor refrescante e leve.',
+    description: 'Brahma Pilsen Beer, 350ml can, refreshing and light flavor.',
     formattedPrice: 'R$ 3.49'
   },
   {
-    description: 'Cerveja Weiss Eisenbahn, garrafa de 500ml, sabor encorpado e aromático.',
+    description: 'Eisenbahn Weiss Beer, 500ml bottle, full-bodied and aromatic flavor.',
     formattedPrice: 'R$ 7.99'
   },
   ...
 ]
 ```
-
 </details>
 
-## Implementado uma função que busque por produtos de uma marca específica
 
-Outra funcionalidade crucial é a busca por produtos através da marca, que também vai fazer parte da Página Inicial do Supermercado Pirilampo.
+## Implemented a function that searches for products by a specific brand
+
+Another crucial functionality is searching for products by brand, which will also be part of the Home Page of Pirilampo Supermarket
 
 <details>
+  <summary>
+    <strong>Developed a function that allows searching for products by brand</strong>
+  </summary>
 
-<summary><strong>Foi desenvolvido uma função que permite buscar produtos pela marca</strong></summary>
+### Where it was developed
 
-### Onde foi desenvolvido
+- The file where the solution was implemented is called `search-products-by-brand.js` and is inside the `src` directory
+- The implementation is within the `searchProductsByBrand` function
 
-- O arquivo onde foi implementado a solução se chama `search-products-by-brand.js` e está dentro do diretório `src`;
-- A implementação está dentro da função `searchProductsByBrand`.
+### Business rules
 
-### Regras de negócio
+- The function should receive the brand as a parameter.
+- If products are found, the function should return a new array of objects. Each object should have the following keys:
 
-- A função deve receber a marca como parâmetro;
-- Se produtos forem encontrados, a função deve retornar um novo `array` de objetos. Cada objeto deve ter as seguintes chaves:
+  - **description:** 'product description, without any modification',
+  - **formattedPrice:** 'Real currency prefix (`R$`) added to the product price (`1.99`, for example), with 1 space between the data. Additionally, the decimal separator will be a period (`.`), since the information in _data.json_ is already in this format. Example: `R$ 10.99`'
 
-  - **description:** 'descrição do produto, sem nenhuma modificação',
-  - **formattedPrice:** 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`'
+- If no products are found, the function should return an empty array
+- The function should return an empty array if called **without a parameter**
+- The search should be `case-insensitive` and `accent-insensitive`
 
-- Se nenhum produto for encontrado, a função deve retornar um `array` vazio;
-- A função deve retornar um `array` vazio caso seja chamada **sem parâmetro**;
-- A pesquisa deve ser `case-insensitive` e `accent-insensitive`;
+### The `searchProductsByBrand` function when receiving an array with objects
 
-### A função `searchProductsByBrand` ao receber um array com objetos
+- The function traverses the `stockProducts` array, which contains product objects from the stock, in search of products from a **specific brand**. If products are found, the function returns a new list of objects with the properties of **description** and **formatted product value**; otherwise, it returns **an empty list**
+- When searching for products by brand, the returned array has objects whose `description` key is the same as the original object, and the `formattedPrice` key is in the format `R$ XX.YY` or `R$ X.YY`
+- When searching for an existing brand, the value returned by the function is an `array` of elements of type `object`
+- Searching for a nonexistent brand will return an empty array
+- Calling the function without passing a parameter will return an empty array
+- When searching for a product brand with **accents** or **uppercase** and **lowercase**, the function will return the product even if the parameter has been passed without respecting the accentuation and sensitivity of the brand name
 
-- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos de uma **marca** específica. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição** e **valor formatado do produto**, caso contrário a função retornará **uma lista vazia**;
-- Ao buscar produtos pela marca, o array retornado tem objetos cuja chave `description` seja a mesma do objeto original e a chave `formattedPrice` esteja dentro do formato `R$ XX.YY` ou `R$ X.YY`;
-- Ao buscar por uma marca existente, o valor retornado pela função é um `array` de elementos do tipo `object`;
-- Buscar por uma marca inexistente, retornará um array `vazio`;
-- Chamar a função sem passar parâmetro, retornará um array `vazio`;
-- Buscar pela marca "Hortifruti", utilizando o `data.json` como fonte do estoque, a função retorna um array com `6` elementos;
-- Ao buscar pela marca de produto com **acentos** ou **maiúsculas** e **minúsculas**, a função retornará o produto mesmo que o parâmetro tenha sido passado sem respeitar acentuação e sensibilidade do nome do marca;
-
-### Exemplo do formato esperado caso a função encontre produtos de uma marca
+### Example of the expected format if the function finds products from a brand
 
 ```js
 [
   {
-    description: 'Batata Doce Hortifruti, pacote de 1kg, batatas doces frescas e saborosas.',
+    description: 'Sweet Potato Hortifruti, 1kg package, fresh and tasty sweet potatoes.',
     formattedPrice: 'R$ 6.99'
   },
   {
-    description: "Cenoura Hortifruti, pacote de 500g, cenouras frescas e crocantes.",
+    description: 'Carrot Hortifruti, 500g package, fresh and crunchy carrots.',
     formattedPrice: 'R$ 3.99'
   }
   ...
 ]
 ```
-
 </details>
 
-## Implementado uma função que busque por produtos na promoção
 
-Todo supermercado tem promoções, certo? Logo uma área com os produtos em oferta é altamente estratégico. Pensando nisso foi desenvolvido uma função que recupera os produtos em promoção, para serem adicionados em uma nova seção.
+## Implemented a function that searches for products on sale
+
+Every supermarket has promotions, right? Therefore, an area with products on sale is highly strategic. With that in mind, a function has been developed to retrieve products on sale to be added to a new section
 
 <details>
+  <summary>
+    <strong>Developed a function that returns products on sale</strong>
+  </summary>
 
-<summary><strong>Foi desenvolvida uma função que retorna os produtos em promoção</strong></summary>
+### Where it was developed
 
-### Onde foi desenvolvido
+- The file where the solution was implemented is called `products-on-sale.js` and is inside the `src` directory
+- The implementation is within the `getProductsOnSale` function
 
-- O arquivo onde foi implementado a solução se chama `products-on-sale.js` e está dentro do diretório `src`;
-- A implementação está dentro da função `getProductsOnSale`;
+### Business rules
 
-### Regras de negócio
+- A product is considered on sale when the `onSale` key has the value `true`
+- If products are found, the function will return a new array of objects. Each object should have the following keys:
 
-- Um produto é considerado em promoção quando a chave `onSale` tiver o valor `true`;
-- Se produtos forem encontrados, a função irá retornar um novo `array` de objetos. Cada objeto deve ter as seguintes chaves:
+  - **description:** 'product description, without any modification',
+  - **formattedPrice:** 'Real currency prefix (`R$`) added to the product price (`1.99`, for example), with 1 space between the data. Additionally, the decimal separator will be a period (`.`), since the information in _data.json_ is already in this format. Example: `R$ 10.99`',
+  - **onSale:** 'boolean information indicating that the product is on sale'
 
-  - **description:** 'descrição do produto, sem nenhuma modificação',
-  - **formattedPrice:** 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
-  - **onSale:** 'informação booleana identificando que o produto está em promoção'
+### The `getProductsOnSale` function when receiving an array with objects
 
-### A função `getProductsOnSale` ao receber um array com objetos
+- The function traverses the `stockProducts` array, which contains product objects from the stock, in search of products **on sale**. If products are found, the function returns a new list of objects with the properties of **description**, **formatted product value**, and **boolean offer information**
+- When searching for products on sale, the value returned by the function is an `array` of elements of type `object`
+- The objects in the array have 3 keys: `description`, `formattedPrice`, and `onSale`
+- The returned array has objects whose `description` key is the same as the original object, the `formattedPrice` key is in the format `R$ XX.YY` or `R$ X.YY`, and the `onSale` key is `true`
 
-- A função percorrer o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos **em promoção**. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição**, o **valor formatado do produto** e a **informação booleana de oferta**;
-  - Ao buscar por produtos em promoção, o valor retornado pela função é um `array` de elementos do tipo `object`;
-  - Os objetos do array tem 3 chaves: `description`, `formattedPrice` e `onSale`;
-  - O array retornado tem objetos cuja chave `description` seja a mesma do objeto original, a chave `formattedPrice` está no formato `R$ XX.YY` ou `R$ X.YY` e a chave `onSale` é `true`;
-
-### Exemplo do formato esperado caso a função encontre produtos em promoção
+### Example of the expected format if the function finds products on sale
 
 ```js
 [
   {
-    description: "Biscoito recheado Nestlé, pacote de 130g, sabor chocolate.",
+    description: "Nestlé filled biscuit, 130g pack, chocolate flavor.",
     formattedPrice: 'R$ 1.99',
     onSale: true
   },
   {
-    description: "Filé de salmão Seara, embalagem de 500g, fonte de proteínas e ômega-3.",
+    description: "Seara salmon fillet, 500g package, a source of proteins and omega-3.",
     formattedPrice: 'R$ 39.99',
     onSale: true
   },
   ...
 ]
 ```
-
 </details>
 
-## Implementado uma função que retorne todos os produtos com informações sobre alergia ou intolerância
 
-Com o aumento da demanda de produtos para pessoas com algum tipo de alergia ou intolerância alimentar, é importante que o site do supermercado mostre essas informações para ter mais assertividade nas vendas.
+## Implemented a function that returns all products with allergy or intolerance information
+
+With the increasing demand for products for people with allergies or food intolerances, it is important that the supermarket's website displays this information for more accuracy in sales
 
 <details>
+  <summary>
+    <strong>Developed a function that returns products in stock with allergy or intolerance information</strong>
+  </summary>
 
-<summary><strong>Foi desenvolvido uma função que retorna os produtos em estoque com informações de alergia ou intolerância alimentar</strong></summary>
+### Where it was developed
 
-### Onde foi desenvolvido
+- The file where the solution was implemented is called `products-with-allergy-or-intolerance.js` and is inside the `src` directory
+- The implementation is within the `getProductsWithAllergyOrIntolerance` function
 
-- O arquivo onde foi implementado a solução se chama `products-with-allergy-or-intolerance.js` e está dentro do diretório `src`;
-- A implementação está dentro da função `getProductsWithAllergyOrIntolerance`;
+### Business rules
 
-### Regras de negócio
+- Your function must, obligatorily, return an `array` of objects with the following keys:
 
-- Sua função deve, obrigatoriamente, retornar um `array` de objetos com as seguintes chaves:
+  - **description:** 'product description, without any modification',
+  - **formattedPrice:** 'Real currency prefix (`R$`) added to the product price (`1.99`, for example), with 1 space between the data. Additionally, the decimal separator will be a period (`.`), since the information in _data.json_ is already in this format. Example: `R$ 10.99`',
+  - **allergyOrIntoleranceMessage:** 'must be of type `string` and will only be added to the new object when there is allergy or intolerance information in the product object. It must follow the following format: `May contain: {item 1},{item 2},{item N}`. The number of items varies according to the size of the `allergyOrIntolerance` array of the product in stock'
 
-  - **description:** 'descrição do produto, sem nenhuma modificação',
-  - **formattedPrice:** 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
-  - **allergyOrIntoleranceMessage:** 'deve ser do tipo `string` e só será adicionada ao novo objeto quando houver informações de alergia ou intolerância no objeto do produto. Deve seguir o seguinte formato: `Pode conter: {item 1},{item 2},{item N}`. A quantidade de itens varia de acordo com o tamanho do array `allergyOrIntolerance` do produto em estoque'
+### The `getProductsWithAllergyOrIntolerance` function when receiving an array with objects
 
-### A função `getProductsWithAllergyOrIntolerance` ao receber um array com objetos
+- The function traverses the `stockProducts` array, which contains product objects from the stock, in search of products **with allergy and food intolerance information**. If products are found, the function returns a new list of objects with the properties of **description**, **formatted product value**, and **formatted allergy and intolerance information**
+- When searching for products with allergy or intolerance information, the value returned by the function must be an `array` whose elements are of type `object`
+- The objects in the array have the keys `description`, `formattedPrice`, and `allergyOrIntoleranceMessage`
+- The value of the `description` key is the same as the original object, the `formattedPrice` key is in the format `R$ XX.YY` or `R$ X.YY`, and when the product has allergy or intolerance information, the value of the `allergyOrIntoleranceMessage` key is in the format `May contain: {item 1},{item 2},{item N}`
 
-- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos **com informações de alergia e intolerância alimentar**. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição**, o **valor formatado do produto** e a **informação formatada de alergia e intolerância**;
-- Buscar por produtos com informação de alergia ou intolerância, o valor retornado pela função deve ser um `array` cujo os elementos sejam do tipo `object`;
-- Os objetos do array possuem as chaves `description`, `formattedPrice` e `allergyOrIntoleranceMessage`;
-- O valor da chave `description` é o mesmo do objeto original, a chave `formattedPrice` está no formato `R$ XX.YY` ou `R$ X.YY` e, quando o produto possui informações de alergia ou intolerância, o valor da chave `allergyOrIntoleranceMessage` é o formato `Pode conter: {item 1},{item 2},{item N}`;
-
-### Exemplo do formato esperado para o array de retorno
+### Example of the expected format for the return array
 
 ```js
 [
   {
-    description: 'Arroz integral Tio João, pacote de 1kg, rico em fibras e vitaminas.',
+    description: 'Tio João whole grain rice, 1kg package, rich in fiber and vitamins.',
     formattedPrice: "R$ 10.99",
-    allergyOrIntoleranceMessage: 'Pode conter: glúten,soja,castanhas'
+    allergyOrIntoleranceMessage: 'May contain: gluten,soy,nuts'
   },
   {
-    description: 'Iogurte Danone, pote de 500g, fonte de cálcio e probióticos.',
+    description: 'Danone Yogurt, 500g pot, a source of calcium and probiotics.',
     formattedPrice: "R$ 5.49",
-    allergyOrIntoleranceMessage: 'Pode conter: leite'
+    allergyOrIntoleranceMessage: 'May contain: milk'
   },
   ...
 ]
 ```
-
 </details>
 
-## Implementado uma função que retorne todos os produtos que possuam alguma vitamina em seu valor nutricional
 
-Pensando na saúde das pessoas, implementar uma seção na Página Inicial para listar alimentos ricos em vitaminas me parece uma boa ideia.
+## Implemented a function that returns all products that contain some vitamin in their nutritional value
+
+Thinking about people's health, implementing a section on the Homepage to list foods rich in vitamins seems like a good idea
 
 <details>
+  <summary>
+    <strong>Developed a function that returns products rich in vitamins</strong>
+  </summary>
 
-<summary><strong>Foi desenvolvido uma função que retorna produtos ricos em vitaminas</strong></summary>
+### Where it was developed
 
-### Onde foi desenvolvido
+- The file where the solution was implemented is called `products-rich-in-vitamin.js` and is inside the `src` directory
+- The implementation is within the `getProductsRichInVitamin` function
 
-- O arquivo onde foi implementado a solução se chama `products-rich-in-vitamin.js` e está dentro do diretório `src`;
-- A implementação está dentro da função `getProductsRichInVitamin`.
+### Business rules
 
-### Regras de negócio
+- The function must return an `array` of objects with the following keys:
 
-- A função deve retornar um `array` de objetos com as seguintes chaves:
+  - **description:** 'product description, without any modification',
+  - **formattedPrice:** 'Real currency prefix (`R$`) added to the product price (`1.99`, for example), with 1 space between the data. Additionally, the decimal separator will be a period (`.`), since the information in _data.json_ is already in this format. Example: `R$ 10.99`',
+  - **vitaminsInformation:** 'must be an `array` of `string`. The text of the elements in this array must follow the format `{vitamin name} - {amount of vitamin present}`. The vitamin name information is found in the **keys of the `nutritionalInfo.vitamins` object** of the product in stock, and the amount of vitamin present information is found in the values of the same object'
 
-  - **description:** 'descrição do produto, sem nenhuma modificação',
-  - **formattedPrice:** 'prefixo da moeda Real (`R$`) acrescido do preço do produto (`1.99`, por exemplo), com 1 espaço entre os dados. Além disso, o separador de casas decimais será o ponto (`.`), uma vez que a informação do _data.json_ já se encontra nesse formato. Exemplo: `R$ 10.99`',
-  - **vitaminsInformation:** 'deve ser um `array` de `string`. O texto dos elementos desse array deve seguir o formato `{nome da vitamina} - {quantidade de vitamina presente}`. A informação do nome da vitamina é encontrada nas **chaves do objeto `nutritionalInfo.vitamins`** do produto em estoque, já a informação de quantidade de vitamina presente é encontrada nos valores do mesmo objeto'
+### The `getProductsRichInVitamin` function when receiving an array with objects
 
-### A função `getProductsRichInVitamin` ao receber um array com objetos
+- The function traverses the `stockProducts` array, which contains product objects from the stock, in search of products **with vitamin information**. If products are found, the function returns a new list of objects with the properties of **description**, **formatted product value**, and **list of vitamins available in the product**
+- The value returned by the function is an `array` whose elements are of type `object`
+- The objects in the array have 3 keys: `description`, `formattedPrice`, and `vitaminsInformation`
+- The value of the `description` key is the same as the original object, the `formattedPrice` key of the objects is in the format `R$ XX.YY` or `R$ X.YY`, and the `vitaminsInformation` key of the objects is in the format `{vitamin name} - {amount of vitamin present}`
+- The `vitaminsInformation` key of the objects is an `array`
 
-- A função percorre o array `stockProducts` que contém objetos de produto do estoque, em busca de produtos **com informações de vitaminas**. Caso produtos sejam encontrados, a função retorna uma nova lista de objetos com as propriedades de **descrição**, o **valor formatado do produto** e a **lista de vitaminas disponíveis no produto**.
-- O valor retornado pela função é um `array` cujo os elementos são do tipo `object`;
-- Os objetos do array possuem 3 chaves: `description`, `formattedPrice` e `vitaminsInformation`;
-- O valor da chave `description` é o mesmo do objeto original, a chave `formattedPrice` dos objetos está dentro do formato `R$ XX.YY` ou `R$ X.YY` e a chave `vitaminsInformation` dos objetos está dentro do formato `{nome da vitamina} - {quantidade de vitamina presente}`;
-- A chave `vitaminsInformation` dos objetos é um `array`;
-
-### Exemplo do formato esperado pro array de retorno
+### Example of the expected format for the return array
 
 ```js
 [
   {
-    description: 'Nozes sem casca Fazenda São Francisco, pacote de 200g, fonte de gorduras boas e minerais.',
+    description: 'Shell-less walnuts from Farm São Francisco, 200g package, a source of good fats and minerals.',
     formattedPrice: 'R$ 19.99',
     vitaminsInformation: [ 'vitaminB6 - 5' ]
   },
   {
-    description: 'Filé de salmão Seara, embalagem de 500g, fonte de proteínas e ômega-3.',
+    description: 'Seara Salmon Fillet, 500g package, a source of proteins and omega-3.',
     formattedPrice: 'R$ 39.99',
     vitaminsInformation: ['vitaminA - 1', 'vitaminD - 50', 'vitaminB6 - 25', 'vitaminB12 - 80']
   },
   {
-    description: 'Carne bovina moída Swift, pacote de 500g, ideal para preparar diversas receitas.',
+    description: 'Swift ground beef, 500g package, ideal for preparing various recipes.',
     formattedPrice: 'R$ 14.99',
     vitaminsInformation: [ 'vitaminB6 - 15', 'vitaminB12 - 50' ]
   },
   ...
 ]
 ```
-
 </details>
 
 ---

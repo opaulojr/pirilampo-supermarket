@@ -5,11 +5,11 @@ const getLowStockProducts = () => {
 
   stockProducts.forEach((product) => {
     if (product.quantityInStock === 1) {
-      const lowStockProduct = `${product.productName}: ${product.quantityInStock} unidade`;
+      const lowStockProduct = `${product.productName}: ${product.quantityInStock} unit`;
       lowStockProducts.push(lowStockProduct);
     }
     if (product.quantityInStock > 1 && product.quantityInStock <= 10) {
-      const lowStockProduct = `${product.productName}: ${product.quantityInStock} unidades`;
+      const lowStockProduct = `${product.productName}: ${product.quantityInStock} units`;
       lowStockProducts.push(lowStockProduct);
     }
   });
