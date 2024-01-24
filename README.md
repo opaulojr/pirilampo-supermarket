@@ -31,20 +31,26 @@ The Pirilampo Supermarket website features a Stock Management area. This section
 
 ### Where it was developed
 
-- The file where the solution was implemented is called `unique-products-amount.js` and is inside the `src` directory
+- The file is called `unique-products-amount.js` and is inside the `src` directory
+
 - The implementation is within the `getUniqueProductsAmount` function
 
 ### Business rules
 
 - The function should return a `number`
+
 - A product can have 50 units in stock but should be counted only as 1 product
+
 - Each object in the `stockProducts` array is a unique product
 
 ### The `getUniqueProductsAmount` function when receiving an array with objects
 
 - Returns a value of type `number`.
+
 - When using `data.json` as the source of the stock, the function returns the number `29`
+
 - In a scenario where the array has 10 objects, the function should return the number `10`
+
 - In a scenario where the array is empty, the function should return the number `0`
 </details>
 
@@ -60,22 +66,30 @@ In addition to the quantity of unique products, the Stock Management area should
 
 ### Where it was developed
 
-- The file where the solution was implemented is called `unique-products-name.js` and is inside the `src` directory
+- The file is called `unique-products-name.js` and is inside the `src` directory
+
 - The implementation is within the `getUniqueProductsName` function
 
 ### Business rules
 
 - The function should return an `array` of `string`
+
 - The `array` returned by the function should contain the names of **all** the products from the array of objects in stock
 
 ### The `getUniqueProductsName` function when receiving an array with objects
 
 - The value returned by the function is an `array`
+
 - All elements in the array returned by the function are of type `string`
+
 - It traverses the `stockProducts` array, which contains product objects from the stock, in search of the **name** of each product. In the end, the function returns a new list that stores the names of the products
+
 - In the case of the `data.json` file, the property where the name of each product is located is `productName`. If another file is used, the function should be adjusted to correspond to the correct property where the names of the objects in that file are located
+
 - When using `data.json` as the source of the stock, the function returns an array with `29` elements
+
 - In a scenario where the stock has 10 objects, the function should return an array with `10` elements
+
 - In a scenario where the stock is empty, the function should return an array with `0` elements
 
 ### Example of the expected format for the return array
@@ -103,20 +117,26 @@ To better plan for the purchase of products that are out of stock, we need to kn
 
 ### Where it was developed
 
-- The file where the solution was implemented is called `out-of-stock-products.js` and is inside the `src` directory
+- The file is called `out-of-stock-products.js` and is inside the `src` directory
+
 - The implementation is within the `getOutOfStockProducts` function
 
 ### Business rules
 
 - The function should return an `array` of `string`
+
 - A product will be considered out of stock when its `quantityInStock` property is **equal to `0`**
 
 ### The `getOutOfStockProducts` function when receiving an array with objects
 
 - The value returned by the function is an `array`
+
 - All elements in the array returned by the function are of type `string`
+
 - The function traverses the `stockProducts` array, which contains product objects from the stock, in search of the **name** of each product that is **out of stock**. In the end, the function returns a new list that stores the names of the products
+
 - When using `data.json` as the source of the stock, the function returns an array with `4` elements
+
 - In a scenario where the stock has 20 out-of-stock products, the function should return an array with `20` elements
 
 ### Example of the expected format for the return array
@@ -143,23 +163,32 @@ In an effort to keep the supermarket well-stocked with goods, we need visibility
 
 ### Where it was developed
 
-- The file where the solution was implemented is called `low-stock-products.js` and is inside the `src` directory
+- The file is called `low-stock-products.js` and is inside the `src` directory
+
 - The implementation is within the `getLowStockProducts` function
 
 ### Business rules
 
-- Your function should return an `array` of `string`
+- The function should return an `array` of `string`
+
 - A product will be considered to have low stock when its `quantityInStock` property is **greater than `0`** and **less than or equal to `10`**
+
 - The format of the elements in the array should be: `{product name}: {quantity in stock} unit` if the quantity in stock is `1`
+
 - The format of the elements in the array should be: `{product name}: {quantity in stock} units` if the quantity in stock is greater than `1`
 
 ### The `getLowStockProducts` function when receiving an array with objects
 
 - The value returned by the function is an `array`
+
 - All elements in the array returned by the function are of type `string`
+
 - The function traverses the `stockProducts` array, which contains product objects from the stock, in search of the **name** and **quantity in stock** of each product that has low stock. In the end, the function returns a new list that stores a customized message indicating the **name** and **quantity of the product**
+
 - The elements in the returned array are in the format `{product name}: {quantity in stock} units`
+
 - When using `data.json` as the source of the stock, the function returns an array with `7` elements
+
 - In a scenario where 20 products have low stock, the function should return an array with `20` elements
 
 ### Example of the expected format for the return array
@@ -186,19 +215,24 @@ The unique quantity of products cannot represent the size of the stock adequatel
 
 ### Where it was developed
 
-- The file where the solution was implemented is called `products-amount.js` and is inside the `src` directory
+- The file is called `products-amount.js` and is inside the `src` directory
+
 - The implementation is within the `getProductsAmount` function
 
 ### Business rules
 
 - The function should return a `number`
+
 - Use the `quantityInStock` property of the product object from the stock to accumulate the totals for all products in the stock
 
 ### The `getProductsAmount` function when receiving an array with objects
 
 - The value returned by the function is of type `number`
+
 - The function traverses the `stockProducts` array, which contains product objects from the stock, in search of the **quantity in stock** for each product. In the end, the function returns the sum of the quantity for all products in stock
+
 - When using `data.json` as the source of the stock, the function returns the number `628`
+
 - In a scenario where the stock has 4857 products, the function should return the number `4857`
 </details>
 
@@ -214,29 +248,39 @@ Now, the creation of a function to search for a product by its name, which will 
 
 ### Where it was developed
 
-- The file where the solution was implemented is called `search-product-by-name.js` and is inside the `src` directory
+- The file is called `search-product-by-name.js` and is inside the `src` directory
+
 - The implementation is within the `searchProductByName` function
 
 ### Business rules
 
 - The function should receive the product name as a parameter
+
 - Consider that there may be products with similar names or that the person conducting the search does not know **exactly** the name of the product within `data.json`. Therefore, this function **must** return an `array` of products that have the parameter passed in the function name
+
 - If the product is found, your function will return an array of objects with the following keys:
 
   - **description:** 'product description, without any modification',
   - **formattedPrice:** 'Real currency prefix (`R$`) added to the product price (`1.99`, for example), with 1 space between the data. Additionally, the decimal separator will be a period (`.`), since the information in `data.json` is already in this format. Example: `R$ 10.99`'
 
 - If the product is not found, the function should return `null`
+
 - The function should return `null` if called **without a parameter**
+
 - The search should be `case-insensitive` and `accent-insensitive`
 
 ### The `searchProductByName` function when receiving an array with objects
 
 - The function traverses the `stockProducts` array, which contains product objects from the stock, in search of the **name** of a specific product. If the product is found, the function will return a list of objects with the properties of `description` and `formattedPrice`
+
 - When searching for an existing product, the returned array has objects whose `description` key is the same as the original object, and the `formattedPrice` key is in the format `R$ XX.YY` or `R$ X.YY`
+
 - When searching for an existing product, the value returned by the function is an `array` of elements of type `object`
+
 - Searching for a nonexistent product will return `null`
+
 - Calling the function without passing a parameter will return `null`
+
 - When searching for a product name with **accents** or **uppercase** and **lowercase**, the function will return the product even if the parameter has been passed without respecting the accentuation and sensitivity of the product name
 
 ### Example of the expected format if the function finds a product
@@ -268,28 +312,37 @@ Another crucial functionality is searching for products by brand, which will als
 
 ### Where it was developed
 
-- The file where the solution was implemented is called `search-products-by-brand.js` and is inside the `src` directory
+- The file is called `search-products-by-brand.js` and is inside the `src` directory
+
 - The implementation is within the `searchProductsByBrand` function
 
 ### Business rules
 
 - The function should receive the brand as a parameter.
+
 - If products are found, the function should return a new array of objects. Each object should have the following keys:
 
   - **description:** 'product description, without any modification',
   - **formattedPrice:** 'Real currency prefix (`R$`) added to the product price (`1.99`, for example), with 1 space between the data. Additionally, the decimal separator will be a period (`.`), since the information in _data.json_ is already in this format. Example: `R$ 10.99`'
 
 - If no products are found, the function should return an empty array
+
 - The function should return an empty array if called **without a parameter**
+
 - The search should be `case-insensitive` and `accent-insensitive`
 
 ### The `searchProductsByBrand` function when receiving an array with objects
 
 - The function traverses the `stockProducts` array, which contains product objects from the stock, in search of products from a **specific brand**. If products are found, the function returns a new list of objects with the properties of **description** and **formatted product value**; otherwise, it returns **an empty list**
+
 - When searching for products by brand, the returned array has objects whose `description` key is the same as the original object, and the `formattedPrice` key is in the format `R$ XX.YY` or `R$ X.YY`
+
 - When searching for an existing brand, the value returned by the function is an `array` of elements of type `object`
+
 - Searching for a nonexistent brand will return an empty array
+
 - Calling the function without passing a parameter will return an empty array
+
 - When searching for a product brand with **accents** or **uppercase** and **lowercase**, the function will return the product even if the parameter has been passed without respecting the accentuation and sensitivity of the brand name
 
 ### Example of the expected format if the function finds products from a brand
@@ -321,12 +374,14 @@ Every supermarket has promotions, right? Therefore, an area with products on sal
 
 ### Where it was developed
 
-- The file where the solution was implemented is called `products-on-sale.js` and is inside the `src` directory
+- The file is called `products-on-sale.js` and is inside the `src` directory
+
 - The implementation is within the `getProductsOnSale` function
 
 ### Business rules
 
 - A product is considered on sale when the `onSale` key has the value `true`
+
 - If products are found, the function will return a new array of objects. Each object should have the following keys:
 
   - **description:** 'product description, without any modification',
@@ -336,8 +391,11 @@ Every supermarket has promotions, right? Therefore, an area with products on sal
 ### The `getProductsOnSale` function when receiving an array with objects
 
 - The function traverses the `stockProducts` array, which contains product objects from the stock, in search of products **on sale**. If products are found, the function returns a new list of objects with the properties of **description**, **formatted product value**, and **boolean offer information**
+
 - When searching for products on sale, the value returned by the function is an `array` of elements of type `object`
+
 - The objects in the array have 3 keys: `description`, `formattedPrice`, and `onSale`
+
 - The returned array has objects whose `description` key is the same as the original object, the `formattedPrice` key is in the format `R$ XX.YY` or `R$ X.YY`, and the `onSale` key is `true`
 
 ### Example of the expected format if the function finds products on sale
@@ -371,7 +429,7 @@ With the increasing demand for products for people with allergies or food intole
 
 ### Where it was developed
 
-- The file where the solution was implemented is called `products-with-allergy-or-intolerance.js` and is inside the `src` directory
+- The file implemented is called `products-with-allergy-or-intolerance.js` and is inside the `src` directory
 - The implementation is within the `getProductsWithAllergyOrIntolerance` function
 
 ### Business rules
@@ -385,8 +443,11 @@ With the increasing demand for products for people with allergies or food intole
 ### The `getProductsWithAllergyOrIntolerance` function when receiving an array with objects
 
 - The function traverses the `stockProducts` array, which contains product objects from the stock, in search of products **with allergy and food intolerance information**. If products are found, the function returns a new list of objects with the properties of **description**, **formatted product value**, and **formatted allergy and intolerance information**
+
 - When searching for products with allergy or intolerance information, the value returned by the function must be an `array` whose elements are of type `object`
+
 - The objects in the array have the keys `description`, `formattedPrice`, and `allergyOrIntoleranceMessage`
+
 - The value of the `description` key is the same as the original object, the `formattedPrice` key is in the format `R$ XX.YY` or `R$ X.YY`, and when the product has allergy or intolerance information, the value of the `allergyOrIntoleranceMessage` key is in the format `May contain: {item 1},{item 2},{item N}`
 
 ### Example of the expected format for the return array
@@ -420,7 +481,8 @@ Thinking about people's health, implementing a section on the Homepage to list f
 
 ### Where it was developed
 
-- The file where the solution was implemented is called `products-rich-in-vitamin.js` and is inside the `src` directory
+- The file is called `products-rich-in-vitamin.js` and is inside the `src` directory
+
 - The implementation is within the `getProductsRichInVitamin` function
 
 ### Business rules
@@ -434,9 +496,13 @@ Thinking about people's health, implementing a section on the Homepage to list f
 ### The `getProductsRichInVitamin` function when receiving an array with objects
 
 - The function traverses the `stockProducts` array, which contains product objects from the stock, in search of products **with vitamin information**. If products are found, the function returns a new list of objects with the properties of **description**, **formatted product value**, and **list of vitamins available in the product**
+
 - The value returned by the function is an `array` whose elements are of type `object`
+
 - The objects in the array have 3 keys: `description`, `formattedPrice`, and `vitaminsInformation`
+
 - The value of the `description` key is the same as the original object, the `formattedPrice` key of the objects is in the format `R$ XX.YY` or `R$ X.YY`, and the `vitaminsInformation` key of the objects is in the format `{vitamin name} - {amount of vitamin present}`
+
 - The `vitaminsInformation` key of the objects is an `array`
 
 ### Example of the expected format for the return array
